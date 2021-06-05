@@ -1,0 +1,10 @@
+.login{
+    border-radius: 10px;
+    padding:5px 15px 5px 15px;
+    font-weight: bold;
+}
+
+.login:hover{
+background-color:  rgb(59, 59, 59);
+color: aliceblue;
+}
