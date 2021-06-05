@@ -11,14 +11,19 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataArr: ['FAdi', 'Mohammed', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']
+      dataArr: [],
+      searchQuery:'money',
+      
     }
+    this.catHandler(null)
   }
 catHandler =(e)=>{
-e.preventDefault();
-let searchQuery=e.target.value;
-let url=`https://goquotes-api.herokuapp.com/api/v1/random/10?type=tag&val=${searchQuery}`
-console.log(searchQuery);
+// e.preventDefault();
+if (e){
+this.setState({searchQuery:e.target.value}) }
+// https://goquotes-api.herokuapp.com/api/v1/all?type=tag&val=${this.state.searchQuery}
+let url=`https://goquotes-api.herokuapp.com/api/v1/random/20?type=tag&val=${this.state.searchQuery}`
+console.log(this.state.searchQuery);
 axios
 .get(url)
 .then(result=>  {
@@ -49,12 +54,14 @@ return (<ButtonGroup key={idx} className="ml-4" aria-label="First group">
         })}
         </ButtonToolbar>
         </>
-        <CardGroup className='ml-2'>
+        <CardGroup  className='ml-2'>
             {
             this.state.dataArr.map((item, idx) => {
               return < Qoute
                 key={idx}
-                name={item.text}
+                name={item.author}
+                text={item.text}
+                tag={item.tag}
 
               />
             })

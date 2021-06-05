@@ -14,17 +14,14 @@ class Qoute extends React.Component {
                     bg={prArr[random]}
 
                         text={prArr[random] === 'light' ? 'dark' : 'white'}
-                        style={{ width: '18rem' }}
+                        style={{ width: '18rem' , height:'21rem'}}
                         className="m-2"
                 >
-                    <Card.Header>{prArr[random]}Header </Card.Header>
+                    <Card.Header>
+                        <h5   style={{color:'black', fontWeight:'bold'}}>{this.props.name}</h5>
+                        </Card.Header>
                     <Card.Body>
-                        <Card.Title> {this.props.name} </Card.Title>
-
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk
-                            of the card's content.
-      </Card.Text>
+                        <Card.Text className='' style={{  color:'black', fontSize:'18px' }}> <p style={{  color:'black', fontSize:'16px',overflow:'auto' ,paddingBottom:'5px' }}>{this.props.text}</p> </Card.Text>
                     </Card.Body>
                 </Card>
             </div>
