@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 // import IsLoadingAndError from './IsLoadingAndError';
 import Footer from './Footer';
-import MyQoutes from './MyQoutes';
+import Main from './Main';
 import Login from './Login';
 import Profile from './Profile';
 import AboutUs from './AboutUs';
@@ -26,12 +26,12 @@ class App extends React.Component {
             <Header />
               <Switch>
                 <Route exact path="/">
-                { this.props.auth0.isAuthenticated ? <MyQoutes/> : <Login/>}
+                { this.props.auth0.isAuthenticated ? <Main/> : <Login/>}
 
                 </Route>
                 <Route exact path="/profile">
-                 
-                <Profile/>
+                {this.props.auth0.isAuthenticated ? <Profile/> : <Login/> }
+               
                 </Route>
                 <Route exact path="/aboutUs">
                  

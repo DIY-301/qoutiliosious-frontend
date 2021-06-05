@@ -7,7 +7,7 @@ class AboutUs extends Component {
     return (
         <>
             
-               <img src={user.picture}/>
+               <img src={user.img} alt=''/>
                     <div>Hello {user.name}</div>
                     <div>Email: {user.email}</div>
 
