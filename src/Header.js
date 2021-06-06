@@ -10,16 +10,12 @@ import LogoutButton from './LogoutButton';
 class Header extends React.Component {
   render() {
     return(
-      <Navbar className='nav' collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand className='header'>Qoutiliosious</Navbar.Brand>
-        <div className='container'>
-        <Link className='navLinks' to="/">Home</Link>
-          <Link className='navLinks' to="/profile">Profile</Link>
-          <Link className='navLinks' to="/aboutUs">About Us</Link>
-          <Link className='navButton' > { this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}</Link>
-        </div>
-         
-         
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand><Link to='/'> QoutilioCious</Link></Navbar.Brand>
+          <Link to="/">Home</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/aboutUs">About Us</Link>
+          { this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}
       </Navbar>
     )
   }
