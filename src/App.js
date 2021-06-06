@@ -6,6 +6,7 @@ import Main from './Main';
 import Login from './Login';
 import Profile from './Profile';
 import AboutUs from './AboutUs';
+import Memes from './Memes';
 
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -14,6 +15,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+
 
 class App extends React.Component {
 
@@ -36,6 +38,10 @@ class App extends React.Component {
                 <Route exact path="/aboutUs">
                  
                 <AboutUs/>
+                </Route>
+                <Route exact path="/memes">
+                 
+                <Memes/>
                 </Route>
               </Switch>
             <Footer />
