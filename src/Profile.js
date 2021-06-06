@@ -1,15 +1,36 @@
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
-import { Button, Card, Carousel } from 'react-bootstrap';
+import { Button,CardGroup, Card, Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './profile.css'
+import Qoute from './Qoute'
+import Main from './Main';
+import App from './App'
 
 class Profile extends Component {
+  
   render() {
     const { user } = this.props.auth0;
     return (
+//  {/* فادي مر من هنا  */}
       <>
+      {this.props.qoutedData.map(item=>{
+        
+        return ( 
+         <CardGroup className='mr-3'>
+       <Card border="secondary"  style={{ width: '18rem', height: '21rem'}}
+       className="m-2">
+    <Card.Header>{item.author}</Card.Header>
+    <Card.Body>
+      <Card.Text>
+        {item.text}
+      </Card.Text>
+    </Card.Body>
+  </Card>)
+    </CardGroup>
+      )})}
 
+   {/* فادي ذهب من هنا */}
         {/* <img src={user.picture} alt='' /> */}
         {/* <div>Hello {user.name}</div> */}
         {/* <div>Email: {user.email}</div> */}
