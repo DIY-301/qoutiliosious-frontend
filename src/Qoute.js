@@ -11,6 +11,7 @@ class Qoute extends React.Component {
             open: false,
             author:'',
             txt:'',
+            tag:'',
             qoutedData:{},
         }
     }
@@ -18,8 +19,8 @@ class Qoute extends React.Component {
         this.setState({
             open: true,
             author:this.props.name,
-            txt:this.props.text
-            
+            txt:this.props.text,
+            tag:this.props.tag
         });
       
     }
@@ -60,7 +61,7 @@ class Qoute extends React.Component {
                         <Fade in={this.state.open}>
                             <div id="example-collapse-text">
                            
-                                <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt})}>  share  </button>
+                                <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
                             
 
                                 <button  onClick={this.handleClick}>  preview  </button>

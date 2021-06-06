@@ -51,7 +51,7 @@ class Profile extends React.Component {
     return (
 //  {/* فادي مر من هنا  */}
       <>
-      {this.props.qoutedData.map(item=>{
+      {/* {this.props.qoutedData.map(item=>{
         
         return ( 
          <CardGroup className='mr-3'>
@@ -65,8 +65,8 @@ class Profile extends React.Component {
     </Card.Body>
   </Card>)
     </CardGroup>
-      )})}
-{/* فادي ذهب من هنا */}
+      )})} */}
+{/* فادي مر من هنا */}
 
         {/* <img src={user.picture} alt='' /> */}
         {/* <div>Hello {user.name}</div> */}

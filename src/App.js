@@ -31,28 +31,30 @@ class App extends React.Component {
 
   const qoute={
   email:user.email,
-  author:data.author.replace(' ','-'),
-  txt:data.txt.replace(' ','-')
+  author:data.author,
+  txt:data.txt,
+  tag:data.tag
 }
 console.log(qoute);
 
     //    /quote?searchQuery=${this.state.searchQuery}
-    const postQouteUrl=await axios.post(`http://localhost:5000/addquote,${user.email}`)
+    const postQouteUrl=(`http://localhost:5000/addquote,${user.email}`)
     console.log(postQouteUrl);
-     
-    //  .post(postQouteUrl)
-    //     .then(result=>{
-    //         let newQouteData= result.data.quotes.map(item=>{
-    //             return item
-    //           })
-    //           this.setState({
-    //             qoutedData:newQouteData
-    //           })
-    //           console.log(this.state.qoutedData);
+
+     axios
+     .post(postQouteUrl)
+        .then(result=>{
+            let newQouteData= result.data.quotes.map(item=>{
+                return item
+              })
+              this.setState({
+                qoutedData:newQouteData
+              })
+              console.log(this.state.qoutedData);
          
-    //         })
-    //    .catch(err=>{
-    //         console.log(err); })
+            })
+       .catch(err=>{
+            console.log(err); })
     }
    
 
