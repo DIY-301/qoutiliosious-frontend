@@ -41,16 +41,17 @@ class AddQouteForm extends React.Component {
           email: user.email,
           tag: this.state.tag,
           text: this.state.text,
+
     
         }
     console.log(qoute);
-        // const newQoute = axios.post(`http://localhost:3001/addQoute`, qoute);
-        // this.setState({
-        //   qoute: await newQoute.data
-        // });
-        // console.log(newQoute);
+    this.props.renderData(qoute);
+        const newQoute = await axios.post(`http://localhost:3001/addQoute`, qoute);
+        this.setState({
+          qoute: newQoute.data
+        });
+        console.log(newQoute);
         this.props.hiddenModal();
-    
       }
 
 
