@@ -5,3 +5,35 @@ a{
 a:hover{
   color:darkgrey;
 }
+
+.header{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+nav .container{
+/* display: flex;
+flex-wrap: wrap; */
+margin-right: 5px;
+}
+
+.nav{
+  margin: 5px 10px 20px 5px;
+  height: 100px;
+
+}
+
+.navLinks{
+  font-weight: bold;
+  font-size: 15px;
+}
+/* .navLinks{
+  
+margin-left: 250px;
+} */
+
+/* .navButton{
+  margin-right: 5px;
+
+} */

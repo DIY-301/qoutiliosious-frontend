@@ -16,7 +16,6 @@ import {
   withRouter 
 } from "react-router-dom";
 
-const { user } = this.props.auth0;
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -25,30 +24,35 @@ class App extends React.Component {
       txt:''
     }
   }
-
-  shareToProfile =(data)=>{
+  
+  shareToProfile =async(data)=>{
+    const { user } = this.props.auth0;
   console.log(data);
-const qoute={
-  author:data.author,
-  txt:data.txt
+
+  const qoute={
+  email:user.email,
+  author:data.author.replace(' ','-'),
+  txt:data.txt.replace(' ','-')
 }
+console.log(qoute);
+
     //    /quote?searchQuery=${this.state.searchQuery}
-    const postQouteUrl=`http://localhost:5000/addQoute(${user.email},${qoute})`
+    const postQouteUrl=await axios.post(`http://localhost:5000/addquote,${user.email}`)
     console.log(postQouteUrl);
-     axios
-     .get(postQouteUrl)
-        .then(result=>{
-            let newQouteData= result.data.quotes.map(item=>{
-                return item
-              })
-              this.setState({
-                qoutedData:newQouteData
-              })
-              console.log(this.state.qoutedData);
+     
+    //  .post(postQouteUrl)
+    //     .then(result=>{
+    //         let newQouteData= result.data.quotes.map(item=>{
+    //             return item
+    //           })
+    //           this.setState({
+    //             qoutedData:newQouteData
+    //           })
+    //           console.log(this.state.qoutedData);
          
-            })
-       .catch(err=>{
-            console.log(err); })
+    //         })
+    //    .catch(err=>{
+    //         console.log(err); })
     }
    
 
@@ -76,6 +80,7 @@ const qoute={
                  />  }
                
                 </Route>
+
                 <Route exact path="/aboutUs">
                  
                 <AboutUs/>
