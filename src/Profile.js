@@ -55,6 +55,28 @@ console.log(this.state.qoute)
 }
 
 
+
+
+
+
+deleteQoute = async (idx) => {
+  let { user } = this.props.auth0;
+  console.log(idx);
+
+  user = { email: user.email }
+  console.log(user)
+  const deleteQoute = await axios.delete(`http://localhost:3001/deleteqout/${idx}`, { params: user })
+console.log(deleteQoute);
+  this.setState({
+    qoute: deleteQoute.data
+  })
+  console.log(this.state.qoute);
+  
+
+}
+
+
+
   showModal = () => {
 
     this.setState({
@@ -73,7 +95,7 @@ console.log(this.state.qoute)
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/* فادي مر من هنا  */}
+      //  {/*  مر من هنا  */}
       <>
       {this.state.showCards &&
 
@@ -88,6 +110,8 @@ console.log(this.state.qoute)
                 <Card.Text>
                   {item.txt}
                 </Card.Text>
+                <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
+
               </Card.Body>
             </Card>
            )
