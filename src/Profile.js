@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
-import { Button,CardGroup, Card, Carousel,OverlayTrigger, Overlay, Tooltip ,Modal,Form,Jumbotron } from 'react-bootstrap';
+import { Button, CardGroup, Card, Carousel, OverlayTrigger, Overlay, Tooltip, Modal, Form, Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './profile.css'
 import Qoute from './Qoute'
@@ -9,7 +9,7 @@ import App from './App'
 import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 
-  
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -49,9 +49,9 @@ class Profile extends React.Component {
   render() {
     const { user } = this.props.auth0;
     return (
-//  {/* فادي مر من هنا  */}
+      //  {/* فادي مر من هنا  */}
       <>
-      {/* {this.props.qoutedData.map(item=>{
+        {/* {this.props.qoutedData.map(item=>{
         
         return ( 
          <CardGroup className='mr-3'>
@@ -66,11 +66,11 @@ class Profile extends React.Component {
   </Card>)
     </CardGroup>
       )})} */}
-{/* فادي مر من هنا */}
+        {/* فادي مر من هنا */}
 
-   
 
-          {/* <Card style={{ width: '15rem' }}>
+
+        {/* <Card style={{ width: '15rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -83,28 +83,30 @@ class Profile extends React.Component {
 
         <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
-        <Jumbotron   className="jumb">
+        <Jumbotron className="jumb">
 
-          <h1>Hello in Your profile page</h1>
+          <h1>Hello {user.name} in Your profile page</h1>
           <p>
-            Here you can see all your Favaourte Qoutes .
-            and You can add new qoutes from your own .
-  </p>
+            in your profile here you can find your favorite quotes
+          </p>
 
-      
+
         </Jumbotron>
 
 
 
-<Jumbotron  className="picJumb">
-<div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
+        <Jumbotron className="picJumb">
+          <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
 
-<div style={{backgroundColor:"#fb9300" , height:'500px',width:'550px'}}> <p>efet4</p></div>
-  <div><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
+            <div style={{ backgroundColor: "#eb5e0b", opacity: '5', marginLeft: '', height: '500px', width: '115px' }}> <p></p></div> {/* yellow figure */}
 
-<div style={{backgroundColor:"#fb9300" , height:'250px',width:'250px'}}> <p>efet4</p></div>
+            <div className="profImg">
+              <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" />
+            </div>
 
-{/* 
+            <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
+
+            {/* 
 <Card className="Cards" style={{ width: '12rem' }}>
   <Card.Img variant="top" src={user.picture} />
   <Card.Body>
@@ -113,11 +115,23 @@ class Profile extends React.Component {
     </Card.Text>
   </Card.Body>
 </Card> */}
+            <Card className="Cards" style={{ width: '12rem' }}>
+              
 
-  <Button className="button" onClick={this.showModal} variant="outline-secondary">Add new Qoute</Button>
+              <Card.Body style={{marginBottom:'300px'}}>
+                <Card.Title>
+                  
+                </Card.Title>
+                
+                <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button>
+                
+              </Card.Body>
+            </Card>
 
-</div>
-</Jumbotron>
+           
+
+          </div>
+        </Jumbotron>
 
 
 
@@ -136,9 +150,9 @@ class Profile extends React.Component {
             </Card>
 
           }
-          )} 
+          )}
 
-           ));
+           
         </div>
 
         <Carousel className="carouselCards">

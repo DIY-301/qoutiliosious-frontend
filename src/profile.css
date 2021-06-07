@@ -15,7 +15,7 @@
 }
 
 .jumb{
-    background-color: #343f56;
+    background-color: #8ab6d6;
   
 
 }
@@ -27,7 +27,7 @@ padding-top: 20px;
 }
 
 .picJumb{
-    background-color: #343f56;
+    background-color: #8ab6d6;
  
 }
 
@@ -42,5 +42,10 @@ padding-top: 20px;
 
   body{
       color: aliceblue;
-      background-color: #343f56;
+      background-color: #8ab6d6;
   }
+
+  /*.profImg{
+      /* margin-left: 100px; */
+      /* margin-top:; 
+  }*/

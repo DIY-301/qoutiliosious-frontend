@@ -53,8 +53,7 @@ console.log(qoute);
               this.setState({
                 qoutedData:newQouteData
               })
-              console.log(this.state.qoutedData);
-         
+              console.log(this.state.qoutedData);        
             })
        .catch(err=>{
             console.log(err); })
