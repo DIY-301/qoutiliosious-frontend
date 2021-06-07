@@ -11,7 +11,7 @@ class Header extends React.Component {
   render() {
     return(
       <Navbar className='nav' collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand className='header'>Qoutiliosious</Navbar.Brand>
+        <Navbar.Brand className='header' ><Link  to="/">Qoutiliosious</Link></Navbar.Brand>
         <div className='container'>
         <Link className='navLinks' to="/">Home</Link>
           <Link className='navLinks' to="/profile">Profile</Link>
