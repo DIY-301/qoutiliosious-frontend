@@ -53,45 +53,41 @@ class Profile extends React.Component {
 
         <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
-        <Jumbotron>
+        <Jumbotron   className="jumb">
+
           <h1>Hello in Your profile page</h1>
           <p>
             Here you can see all your Favaourte Qoutes .
             and You can add new qoutes from your own .
   </p>
 
-          <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
-
-
-            <Card className="Cards" style={{ width: '12rem' }}>
-              <Card.Img variant="top" src={user.picture} />
-              <Card.Body>
-                <Card.Title>{user.name}</Card.Title>
-                <Card.Text>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <p>
-              <div>
-
-                {/* <Tooltip id="button-tooltip" {...props}>
-    Simple tooltip
-  </Tooltip>
-  <OverlayTrigger
-    placement="right"
-    delay={{ show: 250, hide: 400 }}
-    overlay={renderTooltip}
-  >
-    <Button variant="success">Hover me to see</Button>
-  </OverlayTrigger> */}
-
-              </div>
-              <Button className="button" onClick={this.showModal} variant="outline-secondary">Add new Qoute</Button>{' '}
-            </p>
-
-          </div><br></br><br></br><br></br>
+      
         </Jumbotron>
 
+
+
+<Jumbotron  className="picJumb">
+<div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
+
+<div style={{backgroundColor:"#fb9300" , height:'500px',width:'550px'}}> <p>efet4</p></div>
+  <div style={{height='200px',width='250px'}}><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
+
+<div style={{backgroundColor:"#fb9300" , height:'250px',width:'250px'}}> <p>efet4</p></div>
+
+{/* 
+<Card className="Cards" style={{ width: '12rem' }}>
+  <Card.Img variant="top" src={user.picture} />
+  <Card.Body>
+    <Card.Title>{user.name}</Card.Title>
+    <Card.Text>
+    </Card.Text>
+  </Card.Body>
+</Card> */}
+
+  <Button className="button" onClick={this.showModal} variant="outline-secondary">Add new Qoute</Button>
+
+</div>
+</Jumbotron>
 
 
 
