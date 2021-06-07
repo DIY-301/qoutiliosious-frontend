@@ -68,25 +68,9 @@ class Profile extends React.Component {
       )})} */}
 {/* فادي مر من هنا */}
 
-        {/* <img src={user.picture} alt='' /> */}
-        {/* <div>Hello {user.name}</div> */}
-        {/* <div>Email: {user.email}</div> */}
-        <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '4rem' }}>
-          <Card style={{ width: '12rem' }}>
-            <Card.Img variant="top" src={user.picture} />
-            <Card.Body>
-              <Card.Title>{user.name}</Card.Title>
-              <Card.Text>
-                {/* {user.email} */}
-              </Card.Text>
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
-          {/* </div>
+   
 
-        <div> */}
-
-          <Card style={{ width: '15rem' }}>
+          {/* <Card style={{ width: '15rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -95,8 +79,8 @@ class Profile extends React.Component {
        </Card.Text>
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
-          </Card>
-        </div><br></br><br></br><br></br>
+          </Card> */}
+
         <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
         <Jumbotron   className="jumb">
@@ -116,7 +100,7 @@ class Profile extends React.Component {
 <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
 
 <div style={{backgroundColor:"#fb9300" , height:'500px',width:'550px'}}> <p>efet4</p></div>
-  <div ><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
+  <div><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
 
 <div style={{backgroundColor:"#fb9300" , height:'250px',width:'250px'}}> <p>efet4</p></div>
 
