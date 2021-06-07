@@ -116,7 +116,7 @@ class Profile extends React.Component {
 <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
 
 <div style={{backgroundColor:"#fb9300" , height:'500px',width:'550px'}}> <p>efet4</p></div>
-  <div style={{height='200px',width='250px'}}><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
+  <div ><img  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" /> </div>
 
 <div style={{backgroundColor:"#fb9300" , height:'250px',width:'250px'}}> <p>efet4</p></div>
 
