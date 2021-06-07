@@ -6,6 +6,7 @@ import Main from './Main';
 import Login from './Login';
 import Profile from './Profile';
 import AboutUs from './AboutUs';
+import axios from 'axios'
 import Memes from './Memes';
 
 import { withAuth0 } from '@auth0/auth0-react';
@@ -13,14 +14,54 @@ import { withAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  withRouter 
 } from "react-router-dom";
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      author:'',
+      txt:''
+    }
+  }
+  
+  shareToProfile =async(data)=>{
+    const { user } = this.props.auth0;
+  console.log(data);
+
+  const qoute={
+  email:user.email,
+  author:data.author,
+  txt:data.txt,
+  tag:data.tag
+}
+console.log(qoute);
+
+    //    /quote?searchQuery=${this.state.searchQuery}
+    const postQouteUrl=(`http://localhost:5000/addquote,${user.email}`)
+    console.log(postQouteUrl);
+
+     axios
+     .post(postQouteUrl)
+        .then(result=>{
+            let newQouteData= result.data.quotes.map(item=>{
+                return item
+              })
+              this.setState({
+                qoutedData:newQouteData
+              })
+              console.log(this.state.qoutedData);
+         
+            })
+       .catch(err=>{
+            console.log(err); })
+    }
+   
 
   render() {
-    console.log('app', this.props)
     return(
       <>
         <Router>
@@ -28,11 +69,20 @@ class App extends React.Component {
             <Header />
               <Switch>
                 <Route exact path="/">
-                { this.props.auth0.isAuthenticated ? <Main/> : <Login/>}
-
+                {/* { this.props.auth0.isAuthenticated && <Login/>} */}
+              <Main
+              shareToProfile={this.shareToProfile}
+              />
                 </Route>
-                <Route exact path="/profile">
-                {this.props.auth0.isAuthenticated ? <Profile/> : <Login/> }
+                <Route exact path="/Profile">
+
+                {this.props.auth0.isAuthenticated &&
+                 <Profile
+                 
+                 qoutedData={this.state.qoutedData}
+                   
+                 
+                 />  }
                
                 </Route>
 
@@ -53,4 +103,4 @@ class App extends React.Component {
   }
 }
 
-export default withAuth0(App);
+export default withAuth0(App); 

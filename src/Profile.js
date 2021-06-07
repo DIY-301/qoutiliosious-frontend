@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
-import { Card, Carousel } from 'react-bootstrap';
-import { Modal, Button, Form } from 'react-bootstrap';
-import { OverlayTrigger, Overlay, Tooltip } from 'react-bootstrap';
-import { Jumbotron } from 'react-bootstrap';
-import axios from 'axios';
+import { Button,CardGroup, Card, Carousel,OverlayTrigger, Overlay, Tooltip ,Modal,Form,Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './profile.css';
+import './profile.css'
+import Qoute from './Qoute'
+import Main from './Main';
+import App from './App'
+import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 
-
+  
 
 class Profile extends React.Component {
   constructor(props) {
@@ -49,8 +49,54 @@ class Profile extends React.Component {
   render() {
     const { user } = this.props.auth0;
     return (
+//  {/* فادي مر من هنا  */}
       <>
+      {/* {this.props.qoutedData.map(item=>{
+        
+        return ( 
+         <CardGroup className='mr-3'>
+       <Card border="secondary"  style={{ width: '18rem', height: '21rem'}}
+       className="m-2">
+    <Card.Header>{item.author}</Card.Header>
+    <Card.Body>
+      <Card.Text>
+        {item.text}
+      </Card.Text>
+    </Card.Body>
+  </Card>)
+    </CardGroup>
+      )})} */}
+{/* فادي مر من هنا */}
 
+        {/* <img src={user.picture} alt='' /> */}
+        {/* <div>Hello {user.name}</div> */}
+        {/* <div>Email: {user.email}</div> */}
+        <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '4rem' }}>
+          <Card style={{ width: '12rem' }}>
+            <Card.Img variant="top" src={user.picture} />
+            <Card.Body>
+              <Card.Title>{user.name}</Card.Title>
+              <Card.Text>
+                {/* {user.email} */}
+              </Card.Text>
+              {/* <Button variant="primary">Go somewhere</Button> */}
+            </Card.Body>
+          </Card>
+          {/* </div>
+
+        <div> */}
+
+          <Card style={{ width: '15rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                
+       </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        </div><br></br><br></br><br></br>
         <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
         <Jumbotron>
