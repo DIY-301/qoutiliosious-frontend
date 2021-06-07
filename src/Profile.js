@@ -16,7 +16,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      txt: '',
       tag: '',
       displayModal: false,
       showCards: false,
@@ -28,6 +28,9 @@ class Profile extends React.Component {
   }
 
 
+
+
+  
 
 
 
@@ -42,7 +45,11 @@ componentDidMount = async () =>
   const reqFromBack= await axios.get(myQouteArr);
   console.log(reqFromBack.data);
 
-
+  this.setState({
+    qoute:reqFromBack.data,
+    showCards:true
+  })
+console.log(this.state.qoute)
   
 
 }
@@ -61,13 +68,6 @@ componentDidMount = async () =>
       displayModal: false,
     })
   }
-  renderData = (data) => {
-    console.log(data.qoute, 'FromProfile');
-
-    this.setState({
-      qouteArr: data.qoute,
-    });
-  }
 
 
   render() {
@@ -75,26 +75,36 @@ componentDidMount = async () =>
     return (
       //  {/* فادي مر من هنا  */}
       <>
-        {/* {this.props.qoutedData.map(item=>{
+      {this.state.showCards &&
+
+      <CardGroup>
+         {this.state.qoute.map((item, idx) => { 
+           return(
+
+          <Card style={{ width: '18rem' }} className="mb-2">
+            
+              <Card.Header> {item.tag}</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {item.txt}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+           )
         
-        return ( 
-         <CardGroup className='mr-3'>
-       <Card border="secondary"  style={{ width: '18rem', height: '21rem'}}
-       className="m-2">
-    <Card.Header>{item.author}</Card.Header>
-    <Card.Body>
-      <Card.Text>
-        {item.text}
-      </Card.Text>
-    </Card.Body>
-  </Card>)
-    </CardGroup>
-      )})} */}
-        {/* فادي مر من هنا */}
+         }
+         )}
 
-
-
+</CardGroup>
+  }
       
+
+
+
+
+
+
+
 
         <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
@@ -121,88 +131,29 @@ componentDidMount = async () =>
 
             <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
 
-            {/* 
-<Card className="Cards" style={{ width: '12rem' }}>
-  <Card.Img variant="top" src={user.picture} />
-  <Card.Body>
-    <Card.Title>{user.name}</Card.Title>
-    <Card.Text>
-    </Card.Text>
-  </Card.Body>
-</Card> */}
-            <Card className="Cards" style={{ width: '12rem' }}>
-              
-
-              <Card.Body style={{marginBottom:'300px'}}>
-                <Card.Title>
-                  
-                </Card.Title>
+          
                 
                 <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button>
-                
-              </Card.Body>
-            </Card>
-
+        
            
 
           </div>
         </Jumbotron>
 
 
+    
 
-        <div>
+   
 
-          {this.state.qoute.map((item, idx) => {
-            <Card style={{ width: '18rem' }} className="mb-2"
-            >
-
-              <Card.Header> {this.item.tag}</Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  {this.item.text}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-
-          }
-          )}
-
-           
-        </div>
-
-        <Carousel className="carouselCards">
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100 mr-3"
-              src="https://images.pexels.com/photos/6230972/pexels-photo-6230972.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="First slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/2821823/pexels-photo-2821823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Second slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Third slide"
-            />
+    
 
 
-          </Carousel.Item>
-        </Carousel>
       </>
-
+        
 
     )
   }
-}
 
+}
 
 export default withAuth0(Profile);

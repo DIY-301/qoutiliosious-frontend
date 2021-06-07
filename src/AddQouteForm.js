@@ -46,10 +46,11 @@ class AddQouteForm extends React.Component {
     
         }
     console.log(qoute);
-        const newQoute = await axios.post(`http://localhost:3300/addquote`, qoute);
+        const newQoute = await axios.post(`http://localhost:3001/addquote`, qoute);
     
         console.log(newQoute);
         this.props.hiddenModal();
+     
       }
 
 
