@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Button,CardGroup, Card, Carousel,OverlayTrigger, Overlay, Tooltip ,Modal,Form,Jumbotron } from 'react-bootstrap';
