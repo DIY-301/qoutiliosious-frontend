@@ -1,3 +1,4 @@
+'use strict';
 import axios from 'axios';
 import React from 'react'
 import { Card, Collapse, Fade } from 'react-bootstrap'
@@ -43,7 +44,7 @@ class Qoute extends React.Component {
                
             <div>
                 <Card
-                    bg={prArr[random]}
+                    bg={'light'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
                     style={{ width: '18rem', height: '21rem'}}
                     className="m-2"
