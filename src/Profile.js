@@ -21,7 +21,9 @@ class Profile extends React.Component {
       displayModal: false,
       showCards: false,
       qoute: [],
-      qouteArr: []
+      qouteArr: [],
+      server : process.env.REACT_APP_SERVER,
+      
     }
   }
 
@@ -29,6 +31,21 @@ class Profile extends React.Component {
 
 
 
+
+componentDidMount = async () =>
+{
+  const { user } = this.props.auth0;
+
+  
+  const myQouteArr = `${this.state.server}/getquote?email=${user.email}`;
+
+  const reqFromBack= await axios.get(myQouteArr);
+  console.log(reqFromBack.data);
+
+
+  
+
+}
 
 
   showModal = () => {
@@ -79,7 +96,7 @@ class Profile extends React.Component {
 
       
 
-        <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
+        <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
         <Jumbotron className="jumb">
 

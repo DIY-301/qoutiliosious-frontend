@@ -10,9 +10,9 @@ class AddQouteForm extends React.Component {
       super(props);
       this.state = {
         text: '',
-        tag: '',
+        tag: 'Motivational',
         displayModal: false,
-        qoute :[],
+        qoute :[],  
       }
     }
 
@@ -42,15 +42,12 @@ class AddQouteForm extends React.Component {
           email: user.email,
           author: user.name,
           tag: this.state.tag,
-          text: this.state.text,
-
+          txt: this.state.text,
     
         }
     console.log(qoute);
-        const newQoute = await axios.post(`http://localhost:3001/addqoute`, qoute);
-        this.setState({
-          qoute: newQoute.data
-        });
+        const newQoute = await axios.post(`http://localhost:3300/addquote`, qoute);
+    
         console.log(newQoute);
         this.props.hiddenModal();
       }
@@ -62,11 +59,6 @@ class AddQouteForm extends React.Component {
 render() {
     const { user } = this.props.auth0;
     return (  
-
-
-
-
-
 
       
         <div>
@@ -84,23 +76,23 @@ render() {
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Tag</Form.Label>
                   <Form.Control as='select' onChange={this.updateTag} custom >
-                    <option value="1">Motivational</option>
-                    <option value="2">Peace</option>
-                    <option value="3">General</option>
-                    <option value="4">Attitude</option>
-                    <option value="5">Beauty</option>
-                    <option value="6">Best</option>
-                    <option value="7">Marriage</option>
-                    <option value="8">Men</option>
-                    <option value="9">MoM</option>
-                    <option value="10">Money</option>
-                    <option value="11">Morning</option>
-                    <option value="12">Patience</option>
-                    <option value="13">Movies</option>
-                    <option value="14">Music</option>
-                    <option value="15">Nature</option>
-                    <option value="16">Parenting</option>
-                    <option value="17">Patriotism</option>
+                    <option value="Motivational">Motivational</option>
+                    <option value="Peace">Peace</option>
+                    <option value="General">General</option>
+                    <option value="Attitude">Attitude</option>
+                    <option value="Beauty">Beauty</option>
+                    <option value="Best">Best</option>
+                    <option value="Marriage">Marriage</option>
+                    <option value="Men">Men</option>
+                    <option value="MoM">MoM</option>
+                    <option value="Money">Money</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Patience">Patience</option>
+                    <option value="Movies">Movies</option>
+                    <option value="Music">Music</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Parenting">Parenting</option>
+                    <option value="Patriotism">Patriotism</option>
 
 
 
