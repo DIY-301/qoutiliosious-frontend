@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Button, CardGroup, Card, Carousel, OverlayTrigger, Overlay, Tooltip, Modal, Form, Jumbotron } from 'react-bootstrap';
@@ -23,6 +24,12 @@ class Profile extends React.Component {
       qouteArr: []
     }
   }
+
+
+
+
+
+
 
   showModal = () => {
 
@@ -70,16 +77,7 @@ class Profile extends React.Component {
 
 
 
-        {/* <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                
-       </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card> */}
+      
 
         <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
@@ -137,7 +135,7 @@ class Profile extends React.Component {
 
         <div>
 
-          {this.state.qouteArr.map((item, idx) => {
+          {this.state.qoute.map((item, idx) => {
             <Card style={{ width: '18rem' }} className="mb-2"
             >
 
