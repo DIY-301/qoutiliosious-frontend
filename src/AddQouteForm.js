@@ -12,6 +12,7 @@ class AddQouteForm extends React.Component {
         text: '',
         tag: '',
         displayModal: false,
+        qoute :[],
       }
     }
 
@@ -39,14 +40,14 @@ class AddQouteForm extends React.Component {
         const qoute = {
     
           email: user.email,
+          author: user.name,
           tag: this.state.tag,
           text: this.state.text,
 
     
         }
     console.log(qoute);
-    this.props.renderData(qoute);
-        const newQoute = await axios.post(`http://localhost:3001/addQoute`, qoute);
+        const newQoute = await axios.post(`http://localhost:3001/addqoute`, qoute);
         this.setState({
           qoute: newQoute.data
         });
@@ -56,10 +57,18 @@ class AddQouteForm extends React.Component {
 
 
 
+
+
 render() {
     const { user } = this.props.auth0;
     return (  
 
+
+
+
+
+
+      
         <div>
           <Modal show={this.props.displayModal} onHide={this.props.hiddenModal} >
             <Modal.Header closeButton>

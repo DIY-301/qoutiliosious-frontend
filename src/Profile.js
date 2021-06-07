@@ -25,6 +25,17 @@ class Profile extends React.Component {
     }
   }
 
+
+
+
+
+
+
+  
+
+
+
+
   showModal = () => {
 
     this.setState({
@@ -87,18 +98,9 @@ class Profile extends React.Component {
 
         <div> */}
 
-          <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                
-       </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </div><br></br><br></br><br></br>
-        <AddQouteForm renderData={this.renderData} hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
+       
+        </div>
+        <AddQouteForm  hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
         <Jumbotron   className="jumb">
 
@@ -140,7 +142,7 @@ class Profile extends React.Component {
 
         <div>
 
-          {this.state.qouteArr.map((item, idx) => {
+          {this.state.qoute.map((item, idx) => {
             <Card style={{ width: '18rem' }} className="mb-2"
             >
 
