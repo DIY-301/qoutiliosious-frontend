@@ -30,6 +30,15 @@ class Profile extends React.Component {
 
 
 
+  updateFromBackend = () => {
+    const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
+
+    const gettingUpdates = await axios.get(updatingTheQuote);
+    console.log(gettingUpdates.data);
+  }
+
+
+
 
 
 componentDidMount = async () =>
@@ -41,9 +50,6 @@ componentDidMount = async () =>
 
   const reqFromBack= await axios.get(myQouteArr);
   console.log(reqFromBack.data);
-
-
-  
 
 }
 
@@ -73,7 +79,7 @@ componentDidMount = async () =>
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/* فادي مر من هنا  */}
+      //  {/* فادي مر من هنا و قلبه انجرح كمان  */}
       <>
         {/* {this.props.qoutedData.map(item=>{
         
@@ -143,7 +149,7 @@ componentDidMount = async () =>
               </Card.Body>
             </Card>
 
-           
+          <button   onClick={this.updateFromBackend} >   </button> 
 
           </div>
         </Jumbotron>
