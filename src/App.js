@@ -41,11 +41,10 @@ class App extends React.Component {
 console.log(qoute);
 
     //    /quote?searchQuery=${this.state.searchQuery}
-    const postQouteUrl=(`http://localhost:5000/addquote,${user.email}`)
-    console.log(postQouteUrl);
+   
 
      axios
-     .post(postQouteUrl)
+     .post(`http://localhost:3300/addquote`,qoute)
         .then(result=>{
             let newQouteData= result.data.quotes.map(item=>{
                 return item
