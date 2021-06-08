@@ -15,15 +15,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  withRouter 
+  withRouter
 } from "react-router-dom";
 
 
 class App extends React.Component {
   render() {
-    return(
+    return (
       <>
         <Router>
+
           {/* <IsLoadingAndError> */}
             <Header />
               <Switch>
@@ -49,10 +50,11 @@ class App extends React.Component {
               </Switch>
             <Footer />
           {/* </IsLoadingAndError> */}
+
         </Router>
       </>
     )
   }
 }
 
-export default withAuth0(App); 
+export default withAuth0(App);

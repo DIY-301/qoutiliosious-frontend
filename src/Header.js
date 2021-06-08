@@ -26,7 +26,6 @@ class Header extends React.Component {
           <Link className='navLinks' to="/aboutUs">About Us</Link>
         </div>
          <div>
-
           <Link className='navButton' > { this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}</Link>
          </div>
          
