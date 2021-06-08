@@ -1,3 +1,4 @@
+'use strict';
 import axios from 'axios';
 import React from 'react'
 import { Card, Collapse, Fade } from 'react-bootstrap'
@@ -39,14 +40,14 @@ class Qoute extends React.Component {
         let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
         return (
 
-            <div>
+        
                
-            <div>
+            <div style={{ justifyContent: 'center'}}>
                 <Card
-                    bg={prArr[random]}
+                    bg={'secondary'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
-                    style={{ width: '18rem', height: '21rem'}}
-                    className="m-2"
+                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
+                    // className="m-2"
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
                     // aria-controls="example-collapse-text"
                     aria-expanded={this.state.open}
@@ -55,7 +56,8 @@ class Qoute extends React.Component {
                         <h5 style={{ color: 'black', fontWeight: 'bold' }}>{this.props.name}</h5>
                     </Card.Header>
                     <Card.Body>
-                        <Card.Text className='' style={{ color: 'black', fontSize: '18px' }}> {this.props.text}</Card.Text>
+                        
+                        <p className="my-p" > {this.props.text}</p>
                     </Card.Body>
                     <Card.Footer>
                         <Fade in={this.state.open}>
@@ -72,7 +74,7 @@ class Qoute extends React.Component {
                     </Card.Footer>
                 </Card>
                 </div> 
-            </div>
+           
         )
     }
     // )

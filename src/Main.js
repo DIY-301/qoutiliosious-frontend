@@ -1,3 +1,4 @@
+'use strict';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -6,7 +7,9 @@ import Qoute from './Qoute'
 import axios from 'axios'
 import Profile from './Profile'
 import { CardGroup, ButtonToolbar, Button, ButtonGroup } from 'react-bootstrap';
-let buttonArr =['Peace','General','Attitude','Beauty','Best','Marriage','Men','MoM','Money','Morning','Patience','Movies','Music','Nature','Parenting','Patriotism','Motivational'];
+import Coffe from './Coffe3.jpg'
+let buttonArr =['Peace','General','Attitude','Beauty','Best','Marriage','Men','MoM','Money','Morning','Patience','Movies','Music','Nature','Parenting','Patriotism'];
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -45,26 +48,33 @@ console.log(this.state.dataArr);
   render() {
     return (
       <>
-     
-      <Jumbotron>
+       <div
+        class="bg_image"
+        style={{
+          backgroundImage: `url(${Coffe})`,
+          backgroundSize: "cover",
+          height: "250vh",
+          color: "#f5f5f5",
+          opacity:'50%',
+          position:'sticky'
+                }}
+      >
+      </div>
+      <Jumbotron> 
         <h1>Qoutilicious</h1>
-        <p>
-          This is a collection of my qoutes.
-        </p>
+      
+        {/* <img src={Coffe} alt='coffe' style={{height:'480px' , width:'100%'}}/> */}
         <>
-
-  
-  
-
-        <ButtonToolbar  aria-label="Toolbar with button groups">
+        <ButtonToolbar style={{ justifyContent: 'center', marginTop:'-2450px'}} aria-label="Toolbar with button groups ">
         {buttonArr.map((item,idx)=> {
-          return (<ButtonGroup key={idx} className="ml-2" aria-label="First group">
-       <Button  style={{ width: '6rem' , height: '3rem' , fontWeight:'bold' }} value={item} onClick={this.catHandler} >{item}</Button>
+          return ( <ButtonGroup key={idx} className="ml-2" aria-label="First group">
+
+       <Button  variant="outline-dark" style={{ width: '6rem' , height: '3rem' , fontWeight:'bold' }} value={item} onClick={this.catHandler} >{item}</Button>
        </ButtonGroup>)
         })}
         </ButtonToolbar>
         </>
-        <CardGroup className='mr-2'>
+        <CardGroup style={{ justifyContent: 'center' ,marginTop:'30px'}}>
             {
               this.state.dataArr.map((item, idx) => {
                 return < Qoute
