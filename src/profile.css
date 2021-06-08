@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .carouselCards img{
     /* margin-left: 50%;
     margin-right: 50%; */
@@ -7,18 +9,27 @@
 
 }
 
-.Cards{
-    margin-left: 20px;
+
+.jumb{
+   font-family: 'Indie Flower', cursive; ;
+
+
+ background-color:#fffefe; height: 100px; top: 0; width: 100%; margin-left: -25px; z-index: 22; background-image: linear-gradient(480deg,hsla(0,0%,100%,.01),hsla(0,0%,100%,.01) 16.667%,rgba(46,46,46,.01) 0,rgba(46,46,46,.01) 33.334%,hsla(0,0%,88.6%,.01) 0,hsla(0,0%,88.6%,.01) 50.001000000000005%,hsla(0,0%,62.4%,.01) 0,hsla(0,0%,62.4%,.01) 66.668%,hsla(0,0%,58.4%,.01) 0,hsla(0,0%,58.4%,.01) 83.33500000000001%,rgba(43,43,43,.01) 0,rgba(43,43,43,.01) 100.002%),linear-gradient(503deg,hsla(0,0%,65.1%,.03),hsla(0,0%,65.1%,.03) 25%,hsla(0,0%,94.1%,.03) 0,hsla(0,0%,94.1%,.03) 50%,hsla(0,0%,47.5%,.03) 0,hsla(0,0%,47.5%,.03) 75%,rgba(40,40,40,.03) 0,rgba(40,40,40,.03)),linear-gradient(504deg,hsla(0,0%,82%,.01),hsla(0,0%,82%,.01) 25%,rgba(22,22,22,.01) 0,rgba(22,22,22,.01) 50%,hsla(0,0%,49%,.01) 0,hsla(0,0%,49%,.01) 75%,hsla(0,0%,80.4%,.01) 0,hsla(0,0%,80.4%,.01)),linear-gradient(247deg,hsla(0,0%,76.5%,.01),hsla(0,0%,76.5%,.01) 14.286%,rgba(64,64,64,.01) 0,rgba(64,64,64,.01) 28.572%,rgba(67,67,67,.01) 0,rgba(67,67,67,.01) 42.858%,hsla(0,0%,83.9%,.01) 0,hsla(0,0%,83.9%,.01) 57.144%,rgba(45,45,45,.01) 0,rgba(45,45,45,.01) 71.42999999999999%,rgba(47,47,47,.01) 71.43%,rgba(47,47,47,.01) 85.71600000000001%,hsla(0,0%,67.5%,.01) 0,hsla(0,0%,67.5%,.01) 100.002%),linear-gradient(230deg,hsla(0,0%,43.5%,.03),hsla(0,0%,43.5%,.03) 16.667%,hsla(0,0%,79.2%,.03) 0,hsla(0,0%,79.2%,.03) 33.334%,rgba(57,57,57,.03) 0,rgba(57,57,57,.03) 50.001000000000005%,hsla(0,0%,77.3%,.03) 0,hsla(0,0%,77.3%,.03) 66.668%,rgba(97,97,97,.03) 0,rgba(97,97,97,.03) 83.33500000000001%,rgba(56,56,56,.03) 0,rgba(56,56,56,.03) 100.002%),linear-gradient(289deg,rgba(88,88,88,.03),rgba(88,88,88,.03) 20%,hsla(0,0%,97.6%,.03) 0,hsla(0,0%,97.6%,.03) 40%,rgba(2,2,2,.03) 0,rgba(2,2,2,.03) 60%,hsla(0,0%,72.5%,.03) 0,hsla(0,0%,72.5%,.03) 80%,hsla(0,0%,76.9%,.03) 0,hsla(0,0%,76.9%,.03)),linear-gradient(299deg,hsla(0,0%,62.7%,.03),hsla(0,0%,62.7%,.03) 12.5%,hsla(0,0%,80%,.03) 0,hsla(0,0%,80%,.03) 25%,hsla(0,0%,42.4%,.03) 0,hsla(0,0%,42.4%,.03) 37.5%,hsla(0,0%,74.9%,.03) 0,hsla(0,0%,74.9%,.03) 50%,hsla(0,0%,90.6%,.03) 0,hsla(0,0%,90.6%,.03) 62.5%,rgba(70,70,70,.03) 0,rgba(70,70,70,.03) 75%,hsla(0,0%,65.1%,.03) 0,hsla(0,0%,65.1%,.03) 87.5%,hsla(0,0%,78%,.03) 0,hsla(0,0%,78%,.03)),linear-gradient(395deg,hsla(0,0%,45.5%,.02),hsla(0,0%,45.5%,.02) 20%,hsla(0,0%,55.3%,.02) 0,hsla(0,0%,55.3%,.02) 40%,hsla(0,0%,59.6%,.02) 0,hsla(0,0%,59.6%,.02) 60%,rgba(61,61,61,.02) 0,rgba(61,61,61,.02) 80%,hsla(0,0%,54.5%,.02) 0,hsla(0,0%,54.5%,.02)),linear-gradient(345deg,hsla(0,0%,89%,.01),hsla(0,0%,89%,.01) 20%,hsla(0,0%,41.2%,.01) 0,hsla(0,0%,41.2%,.01) 40%,rgba(72,72,72,.01) 0,rgba(72,72,72,.01) 60%,rgba(33,33,33,.01) 0,rgba(33,33,33,.01) 80%,rgba(57,57,57,.01) 0,rgba(57,57,57,.01)),linear-gradient(241deg ,rgb(250, 240, 240), rgb(127, 147, 235));
+margin-left: 10px;
+margin-top: 20px;
+  }
+.profileCards{
+    margin-top: 40px;
+ margin-left: 150px;
+border-radius: 50px;
+ height: 70px;
+ width: 350px;
 }
 .button{
     margin-right: 850px;
 }
 
-.jumb{
-    background-color: #8ab6d6;
-  
 
-}
 .imgFirst{
 height: 200px;
 width: 200px;
@@ -26,26 +37,39 @@ float: right;
 padding-top: 20px;
 }
 
-.picJumb{
-    background-color: #8ab6d6;
  
-}
 
-#triangle-left {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid red;
-    border-bottom: 50px solid transparent;
-  }
   
 
   body{
-      color: aliceblue;
-      background-color: #8ab6d6;
+ background-color:#fffefe; height: 100px; top: 0; width: 100%; margin-left: -25px; z-index: 22; background-image: linear-gradient(480deg,hsla(0,0%,100%,.01),hsla(0,0%,100%,.01) 16.667%,rgba(46,46,46,.01) 0,rgba(46,46,46,.01) 33.334%,hsla(0,0%,88.6%,.01) 0,hsla(0,0%,88.6%,.01) 50.001000000000005%,hsla(0,0%,62.4%,.01) 0,hsla(0,0%,62.4%,.01) 66.668%,hsla(0,0%,58.4%,.01) 0,hsla(0,0%,58.4%,.01) 83.33500000000001%,rgba(43,43,43,.01) 0,rgba(43,43,43,.01) 100.002%),linear-gradient(503deg,hsla(0,0%,65.1%,.03),hsla(0,0%,65.1%,.03) 25%,hsla(0,0%,94.1%,.03) 0,hsla(0,0%,94.1%,.03) 50%,hsla(0,0%,47.5%,.03) 0,hsla(0,0%,47.5%,.03) 75%,rgba(40,40,40,.03) 0,rgba(40,40,40,.03)),linear-gradient(504deg,hsla(0,0%,82%,.01),hsla(0,0%,82%,.01) 25%,rgba(22,22,22,.01) 0,rgba(22,22,22,.01) 50%,hsla(0,0%,49%,.01) 0,hsla(0,0%,49%,.01) 75%,hsla(0,0%,80.4%,.01) 0,hsla(0,0%,80.4%,.01)),linear-gradient(247deg,hsla(0,0%,76.5%,.01),hsla(0,0%,76.5%,.01) 14.286%,rgba(64,64,64,.01) 0,rgba(64,64,64,.01) 28.572%,rgba(67,67,67,.01) 0,rgba(67,67,67,.01) 42.858%,hsla(0,0%,83.9%,.01) 0,hsla(0,0%,83.9%,.01) 57.144%,rgba(45,45,45,.01) 0,rgba(45,45,45,.01) 71.42999999999999%,rgba(47,47,47,.01) 71.43%,rgba(47,47,47,.01) 85.71600000000001%,hsla(0,0%,67.5%,.01) 0,hsla(0,0%,67.5%,.01) 100.002%),linear-gradient(230deg,hsla(0,0%,43.5%,.03),hsla(0,0%,43.5%,.03) 16.667%,hsla(0,0%,79.2%,.03) 0,hsla(0,0%,79.2%,.03) 33.334%,rgba(57,57,57,.03) 0,rgba(57,57,57,.03) 50.001000000000005%,hsla(0,0%,77.3%,.03) 0,hsla(0,0%,77.3%,.03) 66.668%,rgba(97,97,97,.03) 0,rgba(97,97,97,.03) 83.33500000000001%,rgba(56,56,56,.03) 0,rgba(56,56,56,.03) 100.002%),linear-gradient(289deg,rgba(88,88,88,.03),rgba(88,88,88,.03) 20%,hsla(0,0%,97.6%,.03) 0,hsla(0,0%,97.6%,.03) 40%,rgba(2,2,2,.03) 0,rgba(2,2,2,.03) 60%,hsla(0,0%,72.5%,.03) 0,hsla(0,0%,72.5%,.03) 80%,hsla(0,0%,76.9%,.03) 0,hsla(0,0%,76.9%,.03)),linear-gradient(299deg,hsla(0,0%,62.7%,.03),hsla(0,0%,62.7%,.03) 12.5%,hsla(0,0%,80%,.03) 0,hsla(0,0%,80%,.03) 25%,hsla(0,0%,42.4%,.03) 0,hsla(0,0%,42.4%,.03) 37.5%,hsla(0,0%,74.9%,.03) 0,hsla(0,0%,74.9%,.03) 50%,hsla(0,0%,90.6%,.03) 0,hsla(0,0%,90.6%,.03) 62.5%,rgba(70,70,70,.03) 0,rgba(70,70,70,.03) 75%,hsla(0,0%,65.1%,.03) 0,hsla(0,0%,65.1%,.03) 87.5%,hsla(0,0%,78%,.03) 0,hsla(0,0%,78%,.03)),linear-gradient(395deg,hsla(0,0%,45.5%,.02),hsla(0,0%,45.5%,.02) 20%,hsla(0,0%,55.3%,.02) 0,hsla(0,0%,55.3%,.02) 40%,hsla(0,0%,59.6%,.02) 0,hsla(0,0%,59.6%,.02) 60%,rgba(61,61,61,.02) 0,rgba(61,61,61,.02) 80%,hsla(0,0%,54.5%,.02) 0,hsla(0,0%,54.5%,.02)),linear-gradient(345deg,hsla(0,0%,89%,.01),hsla(0,0%,89%,.01) 20%,hsla(0,0%,41.2%,.01) 0,hsla(0,0%,41.2%,.01) 40%,rgba(72,72,72,.01) 0,rgba(72,72,72,.01) 60%,rgba(33,33,33,.01) 0,rgba(33,33,33,.01) 80%,rgba(57,57,57,.01) 0,rgba(57,57,57,.01)),linear-gradient(241deg ,rgb(250, 240, 240), rgb(127, 147, 235));
+
   }
 
-  /*.profImg{
-      /* margin-left: 100px; */
-      /* margin-top:; 
-  }*/
+ .fform{
+     border: 2px solid;
+     margin-left: 1100px;
+     height : 300px;
+     width: 550px;
+     padding:20px;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+box-shadow: 0 0 9px rgb(89, 132, 226), 0 0 12px rgb(131, 176, 235), 0 0 4px  rgb(105, 133, 245);
+}
+
+ .ButtonAdd{
+     margin-top: 20px;
+     background-color: rgb(165, 178, 230);
+    border-radius: 10px;
+    padding:5px 15px 5px 15px;
+    font-weight: bold;
+    color: black;
+ }
+
+
+
+.ButtonAdd:hover{
+background-color:  rgb(17, 17, 17);
+color: aliceblue;
+}

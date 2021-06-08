@@ -7,11 +7,23 @@
   font-family: 'Indie Flower', cursive;
 }
 .my-p{
-color: black;
+color: rgb(17, 17, 17);
  font-size: 18px;
  height: 180px;
  width:120px,solid #ccc;
-  font:16px/26px Georgia, Garamond, Serif;
+  font:20px/26px Georgia, Garamond, Serif;
   overflow:auto;
-
+/* border: solid 1px ;
+background-color: rgba(133, 133, 114, 0.692); */
 }
+
+
+.bi:hover{
+  
+
+  border-radius: 90px;
+box-shadow: 0 0 9px rgb(89, 132, 226), 0 0 12px rgb(131, 176, 235), 0 0 4px  rgb(105, 133, 245);
+}
+
+
+  
