@@ -3,80 +3,61 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { render } from '@testing-library/react';
-
-
 class AddQouteForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        text: '',
-        tag: 'Motivational',
-        displayModal: false,
-        qoute :[],  
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      tag: 'Motivational',
+      qoute: [],
     }
+  }
 
 
-    updateTag = (event) => {
-        this.setState({
-          tag: event.target.value
-        })
-        console.log(this.state.tag);
-      }
-    
-    
-      updateText = (event) => {
-        this.setState({
-          text: event.target.value
-        })
-        console.log(this.state.text);
-      }
-
-    
-      addQoute = async (event) => {
-        event.preventDefault();
-    
-        const { user } = this.props.auth0;
-        const quote = {
-    
-          email: user.email, 
-          author: user.name,
-          tag: this.state.tag,
-          txt: this.state.text,
-    
-        }
-    console.log(quote);
-        const newQoute = await axios.post(`http://localhost:3001/addquote`, quote);
-    
-        console.log(newQoute);
-        this.props.hiddenModal();
-     
-      }
+  updateTag = (event) => {
+    this.setState({
+      tag: event.target.value
+    })
+    console.log(this.state.tag);
+  }
 
 
+  updateText = (event) => {
+    this.setState({
+      text: event.target.value
+    })
+    console.log(this.state.text);
+  }
 
 
-
-render() {
+  addQoute = async (e) => {
+    e.preventDefault();
+    const { user } = this.props.auth0;
+    const quote = {
+      author:user.name,
+      email: user.email,
+      txt: this.state.text,
+      tag: this.state.tag
+    }
+    const newQoute = await axios.post(`${process.env.REACT_APP_SERVER}/addquote`, quote);
+    const s=newQoute.data;
+    console.log(s);
+    this.props.update();
+  }
+  
+  render() {
     const { user } = this.props.auth0;
     return (  
 
       
         <div>
-          <Modal show={this.props.displayModal} onHide={this.props.hiddenModal} >
-            <Modal.Header closeButton>
-              <Modal.Title>Add New Qoute </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form   >
-          
-                <Form.Group>
-                  <Form.Label>text</Form.Label>
-                  <Form.Control onChange={this.updateText} type='text' />
+              <Form onSubmit={this.addQoute}  className="fform" >
+                <h2 style ={{paddingBottom:"5px"}}>Add New Quote</h2>
+                <Form.Group  >
+                  <Form.Control  placeholder="ADD-YOUR-QUOTE-HERE" onChange={this.updateText} type='text' />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Tag</Form.Label>
-                  <Form.Control as='select' onChange={this.updateTag} custom >
+                  <Form.Control placeholder="CHIOCE"  as='select' onChange={this.updateTag} custom >
                     <option value="Motivational">Motivational</option>
                     <option value="Peace">Peace</option>
                     <option value="General">General</option>
@@ -94,26 +75,17 @@ render() {
                     <option value="Nature">Nature</option>
                     <option value="Parenting">Parenting</option>
                     <option value="Patriotism">Patriotism</option>
-
-
-
                   </Form.Control>
-                </Form.Group>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={this.props.hiddenModal}>
-                Close
-                       </Button>
-              <Button variant="primary" type="submit" onClick={this.addQoute}>
+                  <Button className="ButtonAdd" variant="primary" type="submit" >
                 Add Qoute
                          </Button>
-            </Modal.Footer>
-          </Modal>
+                </Form.Group>
+              </Form>
+       
         </div>
         )
 }
 }
 
 
-    export default withAuth0(AddQouteForm);
+export default withAuth0(AddQouteForm);

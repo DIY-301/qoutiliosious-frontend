@@ -21,7 +21,9 @@ margin-right: 5px;
 
 .nav{
   margin: 5px 10px 20px 5px;
-  height: 100px;
+  height: 150px;
+width: 100%;
+   background-color: rgba(0, 0, 0, 0.507);
 
 }
 
@@ -36,11 +38,16 @@ font-family: 'Pangolin', cursive;
   font-family: 'Handlee', cursive;
   font-family: 'Pangolin', cursive;
   font-family: 'Staatliches', cursive;
-font-size: 30px;
+font-size: 50px;
 letter-spacing: 5px;
 margin-left: 20px;
 }
 
 .navButton{
   margin-right: 50px;
+}
+
+.quote{
+  color: rgb(245, 247, 243);
+  
 }

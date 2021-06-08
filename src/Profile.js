@@ -10,9 +10,7 @@ import App from './App'
 import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
-
-
-
+import EditQuoteModal from './EditQuoteModal';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -23,86 +21,92 @@ class Profile extends React.Component {
       displayModal: false,
       showCards: false,
       qoute: [],
-      qouteArr: [],
-      server : process.env.REACT_APP_SERVER,
-      
+      changedTag: '',
+      changedTxt: '',
+      idx:0
     }
   }
 
 
-  // updateFromBackend = () => {
-  //   const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
-
-  //   // const gettingUpdates = await axios.get(updatingTheQuote);
-  //   console.log(gettingUpdates.data);
-  // }
+  componentDidMount = () => {
+    this.getQuotes();
+  }
 
 
+  getQuotes = async () => {
+    const { user } = this.props.auth0;
+    const myQouteArr = `${process.env.REACT_APP_SERVER}/getquote?email=${user.email}`;
+    const reqFromBack = await axios.get(myQouteArr);
+    console.log(reqFromBack.data);
+    this.setState({
+      qoute: reqFromBack.data,
+      showCards: true
+    })
+    console.log(this.state.qoute)
 
-componentDidMount = async () =>
-{
-  const { user } = this.props.auth0;
+  }
 
+  deleteQoute = async (idx) => {
+    let { user } = this.props.auth0;
+    console.log(idx);
+    user = { email: user.email }
+    console.log(user)
+    const deleteQoute = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteqout/${idx}`, { params: user })
+    this.setState({
+    qoute:deleteQoute.data
+    });
   
-  const myQouteArr = `http://localhost:3001/getquote?email=${user.email}`;
+  }
 
-  const reqFromBack= await axios.get(myQouteArr);
-  console.log(reqFromBack.data);
+  editQuoteReq = async () => {
+    // console.log(this.props.txt);
+    let { user } = this.props.auth0;
+    let idx=this.state.idx;
+    
+    const updateObj = {
+      email: user.email,
+      txt: this.state.changedTxt,
+      tag: this.state.changedTag,
+      author: user.name
+    }
+    console.log(updateObj)
+    const updateQuote = await axios.put(`${process.env.REACT_APP_SERVER}/updatequote/${idx}`, updateObj);
+    this.setState({
+      qoute:updateQuote.data
+    });
+    this.getQuotes();
+  }
 
-  this.setState({
-    qoute:reqFromBack.data,
-    showCards:true
-  })
-console.log(this.state.qoute)
 
+
+
+  userTagOnChange = (event) => {
+    event.preventDefault();
+    this.setState({
+        changedTag: event.target.value
+    })
+    console.log(this.state.changedTag);
 }
 
+userQuoteOnChange = (event) => {
+    event.preventDefault();
+    this.setState({
+      changedTxt: event.target.value
+    })
 
-deleteQoute = async (idx) => {
-  let { user } = this.props.auth0;
-  console.log(idx);
-
-  user = { email: user.email }
-  console.log(user)
-  const deleteQoute = await axios.delete(`http://localhost:3001/deleteqout/${idx}`, { params: user })
-console.log(deleteQoute);
-  this.setState({
-    qoute: deleteQoute.data
-  })
-  console.log(this.state.qoute);
-  
-
+    console.log(this.state.changedQuote);
 }
-
-
-  editQuoteCall=(data)=>{
-console.log(data.txt);
-this.setState({
-  idx:data.idx,
-  tag:data.tag,
-  txt:data.txt
-})
-
-this.showEditModal();
-console.log(this.state.idx);
-
-}
-showEditModal=()=>{
-  this.setState({
-    showModal:true,
-
-
-  })
-  
-}
-
-closeEditModal=()=>{
-  this.setState({
-    showModal:false
-  })
-}
-
-
+  showEditModal = (idx) => {
+    this.setState({
+      showModal: true,
+      idx:idx
+    })
+  }
+  closeEditModal = () => {
+    this.setState({
+      showModal: false
+    })
+  }
   showModal = () => {
 
     this.setState({
@@ -111,7 +115,6 @@ closeEditModal=()=>{
 
   }
   hiddenModal = () => {
-
     this.setState({
       displayModal: false,
     })
@@ -120,8 +123,56 @@ closeEditModal=()=>{
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/*  مر من هنا  */}
+      
       <>
+<div style={{width:"80%",marginLeft:"250px"}}>
+<Carousel>
+  
+  <Carousel.Item   style={{height:"600px", width:"100%"}} interval={1000}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+  
+  </Carousel.Item>
+  <Carousel.Item    style={{height:"600px", width:"100%"}}interval={500}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+   
+  </Carousel.Item>
+  <Carousel.Item  style={{height:"600px", width:"100%"}}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+
+</div>
+<CardGroup className="profileCards">
+<Card  >
+            <Card.Img  src={user.picture} />
+            <Card.Body>
+              <Card.Title>{user.name}</Card.Title>
+              <Card.Text>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
+</CardGroup>
+
+
+
+
       {this.state.showCards &&
 
       <CardGroup>
@@ -136,7 +187,7 @@ closeEditModal=()=>{
                   {item.txt}
                 </Card.Text>
                 <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
-                <Button onClick={() => this.editQuoteCall({idx,tag:item.tag,txt:item.txt})} variant="primary">Edit quote</Button>
+                    <Button onClick={() => this.showEditModal(idx)} variant="primary">Edit quote</Button>
 
               </Card.Body>
             </Card>
@@ -148,50 +199,23 @@ closeEditModal=()=>{
 </CardGroup>
   }
       
-
-
-        <EditQuote   
-        idx={this.state.idx}
-        tag={this.state.tag}
-        txt={this.state.txt}
-        showModal={this.state.showModal}
-        closeEditModal={this.closeEditModal}
+        <EditQuote
+          showModal={this.state.showModal}
+          closeEditModal={this.closeEditModal}
+          editQuoteReq={this.editQuoteReq}
+          userTagOnChange={this.userTagOnChange}
+          userQuoteOnChange={this.userQuoteOnChange}
         />
+        <AddQouteForm hiddenModal={this.hiddenModal} update={this.getQuotes} displayModal={this.state.displayModal} />
+
+      
+
+       
 
 
-        <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
+      
 
-        <Jumbotron className="jumb">
-
-          <h1>Hello {user.name} in Your profile page</h1>
-          <p>
-            in your profile here you can find your favorite quotes
-          </p>
-
-
-        </Jumbotron>
-
-
-
-        <Jumbotron className="picJumb">
-          <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
-
-            <div style={{ backgroundColor: "#eb5e0b", opacity: '5', marginLeft: '', height: '500px', width: '115px' }}> <p></p></div> {/* yellow figure */}
-
-            <div className="profImg">
-              <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" />
-            </div>
-
-            <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
-
-          
-                
-                <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button>
-        
-          </div>
-        </Jumbotron>
-
-      </>     
+      </>
 
     )
   }
