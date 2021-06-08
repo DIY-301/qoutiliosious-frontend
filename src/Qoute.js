@@ -1,7 +1,7 @@
 'use strict';
 import axios from 'axios';
 import React from 'react'
-import { Card, Collapse, Fade } from 'react-bootstrap'
+import { Card, CardGroup, Collapse, Fade } from 'react-bootstrap'
 import './Main.css';
 import { withRouter } from "react-router-dom";
 import './quote.css';
@@ -36,25 +36,30 @@ class Qoute extends React.Component {
 
 
     render() {
+
+
+
         let random = parseInt(0 + Math.random() * (7 - 0));
         let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
         return (
+<>
 
-        
-               
+
+           
             <div style={{ justifyContent: 'center'}}>
+           
                 <Card className="shdow"
                   style={{ width: '18rem',paddingBottom:'30px' }}
                     bg={'secondary'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
-                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'60px', borderradius:'5'}}
+                    style={{ margin:'70px', width: '18rem', height: '21rem',marginRight:'60px', borderradius:'5'}}
                     // className="m-2"
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
                     // aria-controls="example-collapse-text"
                     aria-expanded={this.state.open}
                 >
                       
-
+         
                     <Card.Header className='textt'>
                         <h5 style={{ color: 'black', fontWeight: 'bold' }}>{this.props.name}</h5>
                     </Card.Header>
@@ -76,11 +81,13 @@ class Qoute extends React.Component {
                         </Fade>
                     </Card.Footer>
                 </Card>
+                
                 </div> 
-           
-        )
+                       
+    
+      </>  )
     }
-    // )
+     
 
 }
 

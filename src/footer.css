@@ -1,3 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
 .footerz{
-    margin-top: 500px;
+    
+    height: 150px;
+  width: 100%;
+     background-color: rgba(0, 0, 0, 0.507);
+ 
+}
+.fontDIY{
+    font-family: 'Teko', sans-serif;
+     font-size: 50px;
+     font-weight: bolder;
+     margin-left: 20px;
 }

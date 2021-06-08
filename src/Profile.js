@@ -118,6 +118,51 @@ closeEditModal=()=>{
       <>
 
 
+{/* <Jumbotron className="jumb">
+
+<h1 >Hello {user.name} in Your profile page</h1>
+
+
+
+</Jumbotron> */}
+
+
+
+
+
+<div style={{width:"80%",marginLeft:"250px"}}>
+<Carousel>
+  
+  <Carousel.Item   style={{height:"600px", width:"100%"}} interval={1000}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+  
+  </Carousel.Item>
+  <Carousel.Item    style={{height:"600px", width:"100%"}}interval={500}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+   
+  </Carousel.Item>
+  <Carousel.Item  style={{height:"600px", width:"100%"}}>
+  <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Third slide"
+            />
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+
+</div>
 <CardGroup className="profileCards">
 <Card  >
             <Card.Img  src={user.picture} />
@@ -131,28 +176,7 @@ closeEditModal=()=>{
 </CardGroup>
 
 
-{/* 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> */}
+
 
       {this.state.showCards &&
 
@@ -193,16 +217,31 @@ closeEditModal=()=>{
 
         <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
-        {/* <Jumbotron className="jumb">
+      
 
-          <h1>Hello {user.name} in Your profile page</h1>
-          <p>
-            in your profile here you can find your favorite quotes
-          </p>
+        <Carousel className="carouselCards" style={{ marginTop:"200px"  }}>
+          <Carousel.Item style={{ width: '100rem' ,height:"60rem" }}>
+            <img
+              className="d-block w-100 mr-3"
+              src="https://images.pexels.com/photos/2255441/pexels-photo-2255441.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="First slide"
+            />
+
+          </Carousel.Item>
+          <Carousel.Item style={{ width: '100rem',height:"60rem"  }}>
+            <img
+              className="d-block w-100"
+              src="https://images.pexels.com/photos/6185624/pexels-photo-6185624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Second slide"
+            />
+
+          </Carousel.Item>
+          <Carousel.Item style={{ width: '100rem' ,height:"60rem"  }}>
+         
 
 
-        </Jumbotron> */}
-
+          </Carousel.Item>
+        </Carousel>
 
 
           <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>

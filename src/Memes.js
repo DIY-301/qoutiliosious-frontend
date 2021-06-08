@@ -71,7 +71,7 @@ class Memes extends React.Component {
         return (
             <>
 
-                <div style={{ marginLeft: '270px', padding: '20px' }}>
+                <div style={{ marginLeft: '350px', padding: '20px' }}>
                     <img style={{ height: '350px', marginBottom: '5px', width: '400px' }} src='https://apimeme.com/meme?meme=Scary-Harry&top=DIY+MEMES&bottom='>
                     </img>
                     <img style={{ height: '350px', marginBottom: '5px', width: '400px', marginLeft: '60px' }} src='https://apimeme.com/meme?meme=Peter-Griffin-News&top=&bottom=Project+week+news'>
