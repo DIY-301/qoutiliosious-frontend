@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&family=Staatliches&display=swap');
+
+
 a{
   color:#fff;
 }
@@ -6,15 +12,10 @@ a:hover{
   color:darkgrey;
 }
 
-.header{
-  font-weight: bold;
-  font-size: 25px;
-}
+
 
 
 nav .container{
-/* display: flex;
-flex-wrap: wrap; */
 margin-right: 5px;
 }
 
@@ -25,15 +26,21 @@ margin-right: 5px;
 }
 
 .navLinks{
-  font-weight: bold;
-  font-size: 15px;
+
+  font-size: 25px;
+  font-family: 'Handlee', cursive;
+font-family: 'Pangolin', cursive;
 }
-/* .navLinks{
-  
-margin-left: 250px;
-} */
 
-/* .navButton{
-  margin-right: 5px;
+.qouteLinks{
+  font-family: 'Handlee', cursive;
+  font-family: 'Pangolin', cursive;
+  font-family: 'Staatliches', cursive;
+font-size: 30px;
+letter-spacing: 5px;
+margin-left: 20px;
+}
 
-} */
+.navButton{
+  margin-right: 50px;
+}
