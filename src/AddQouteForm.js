@@ -9,7 +9,6 @@ class AddQouteForm extends React.Component {
     this.state = {
       text: '',
       tag: 'Motivational',
-      displayModal: false,
       qoute: [],
     }
   }
@@ -43,7 +42,6 @@ class AddQouteForm extends React.Component {
     const newQoute = await axios.post(`${process.env.REACT_APP_SERVER}/addquote`, quote);
     const s=newQoute.data;
     console.log(s);
-    this.props.hiddenModal();
     this.props.update();
   }
   
@@ -53,9 +51,7 @@ class AddQouteForm extends React.Component {
 
       
         <div>
-      
-
-              <Form   className="fform" >
+              <Form onSubmit={this.addQoute}  className="fform" >
                 <h2 style ={{paddingBottom:"5px"}}>Add New Quote</h2>
                 <Form.Group  >
                   <Form.Control  placeholder="ADD-YOUR-QUOTE-HERE" onChange={this.updateText} type='text' />
@@ -80,7 +76,7 @@ class AddQouteForm extends React.Component {
                     <option value="Parenting">Parenting</option>
                     <option value="Patriotism">Patriotism</option>
                   </Form.Control>
-                  <Button className="ButtonAdd" variant="primary" type="submit" onClick={this.addQoute}>
+                  <Button className="ButtonAdd" variant="primary" type="submit" >
                 Add Qoute
                          </Button>
                 </Form.Group>

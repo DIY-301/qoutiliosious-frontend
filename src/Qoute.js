@@ -43,9 +43,6 @@ class Qoute extends React.Component {
         let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
         return (
 <>
-
-
-           
             <div style={{ justifyContent: 'center'}}>
            
                 <Card className="shdow"

@@ -33,7 +33,6 @@ class Profile extends React.Component {
   }
 
 
-
   getQuotes = async () => {
     const { user } = this.props.auth0;
     const myQouteArr = `${process.env.REACT_APP_SERVER}/getquote?email=${user.email}`;
@@ -126,12 +125,6 @@ userQuoteOnChange = (event) => {
     return (
       
       <>
-
-
-
-
-
-
 <div style={{width:"80%",marginLeft:"250px"}}>
 <Carousel>
   
@@ -194,7 +187,7 @@ userQuoteOnChange = (event) => {
                   {item.txt}
                 </Card.Text>
                 <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
-                <Button onClick={() => this.editQuoteCall({idx,tag:item.tag,txt:item.txt})} variant="primary">Edit quote</Button>
+                    <Button onClick={() => this.showEditModal(idx)} variant="primary">Edit quote</Button>
 
               </Card.Body>
             </Card>
@@ -206,35 +199,6 @@ userQuoteOnChange = (event) => {
 </CardGroup>
   }
       
-        {this.state.showCards &&
-          <CardGroup>
-            {this.state.qoute.map((item, idx) => {
-              return (
-
-                <Card style={{ width: '18rem' }} className="mb-2">
-
-                  <Card.Header> {item.tag}</Card.Header>
-                  <Card.Body>
-                    <Card.Text>
-                      {item.txt}
-                    </Card.Text>
-                    <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
-                    <Button onClick={() => this.showEditModal(idx)} variant="primary">Edit quote</Button>
-
-                  </Card.Body>
-                </Card>
-
-
-              )
-
-            }
-            )}
-
-          </CardGroup>
-        }
-
-
-
         <EditQuote
           showModal={this.state.showModal}
           closeEditModal={this.closeEditModal}
