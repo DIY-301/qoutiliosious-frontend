@@ -21,9 +21,8 @@ class Header extends React.Component {
         </Navbar.Brand></Link>
         <div className='container'>
         <Link className='navLinks' to="/">Home</Link>
+          <Link className='navLinks' to="/memes">Memes</Link>  
           <Link className='navLinks' to="/profile">Profile</Link>
-          <Link className='navLinks' to="/memes">Memes</Link>
-        
           <Link className='navLinks' to="/aboutUs">About Us</Link>
         </div>
          <div>

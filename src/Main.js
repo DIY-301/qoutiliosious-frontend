@@ -48,22 +48,6 @@ console.log(this.state.dataArr);
   render() {
     return (
       <>
-       {/* <div
-        class="bg_image"
-        style={{
-          backgroundImage: `url(${Coffe})`,
-          backgroundSize: "cover",
-          height: "250vh",
-          color: "#f5f5f5",
-          opacity:'50%',
-          position:'sticky'
-                }}
-      >
-      </div> */}
-      {/* <Jumbotron> */}
-       
-      
-        {/* <img src={Coffe} alt='coffe' style={{height:'480px' , width:'100%'}}/> */}
         <>
         <ButtonToolbar style={{ justifyContent: 'center', marginTop:'100px'}} aria-label="Toolbar with button groups ">
         {buttonArr.map((item,idx)=> {
