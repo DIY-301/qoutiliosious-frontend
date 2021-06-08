@@ -1,3 +1,4 @@
+'use strict';
 import React from 'react';
 import Header from './Header';
 // import IsLoadingAndError from './IsLoadingAndError';
@@ -28,7 +29,7 @@ class App extends React.Component {
     }
   }
   
-  shareToProfile =async(data)=>{
+  shareToProfile =(data)=>{
     const { user } = this.props.auth0;
   console.log(data);
 
@@ -39,22 +40,20 @@ class App extends React.Component {
   tag:data.tag
 }
 console.log(qoute);
-
-    //    /quote?searchQuery=${this.state.searchQuery}
-    const postQouteUrl=(`http://localhost:5000/addquote,${user.email}`)
-    console.log(postQouteUrl);
+let server=process.env.REACT_APP_SERVER;
+    // const postQouteUrl=(`${server}/addquote`,qoute)
+    // console.log(postQouteUrl);
 
      axios
-     .post(postQouteUrl)
+     .post(`${server}/addquote`,qoute)
         .then(result=>{
-            let newQouteData= result.data.quotes.map(item=>{
+            let newQouteData= result.data.map(item=>{
                 return item
               })
               this.setState({
                 qoutedData:newQouteData
               })
-              console.log(this.state.qoutedData);
-         
+              console.log(this.state.qoutedData);        
             })
        .catch(err=>{
             console.log(err); })
@@ -80,8 +79,8 @@ console.log(qoute);
                  <Profile
                  
                  qoutedData={this.state.qoutedData}
-                   
-                 
+                
+                
                  />  }
                
                 </Route>
