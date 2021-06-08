@@ -4,3 +4,12 @@
 .QoutesCards{
   padding-right: 50px;
 }
+.my-p{
+color: black;
+ font-size: 18px;
+ height: 180px;
+ width:120px,solid #ccc;
+  font:16px/26px Georgia, Garamond, Serif;
+  overflow:auto;
+
+}
