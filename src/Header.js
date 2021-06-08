@@ -2,17 +2,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
+import { Link, Image ,roundedCircle } from "react-router-dom";
 import './header.css';
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
-
+import Logo from './LoGoDiY.png'
 class Header extends React.Component {
   render() {
     return(
+      <>
       <Navbar className='nav' collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand className='header'>Qoutiliosious</Navbar.Brand>
+       <Link className='navLinks' to="/">
+        <Navbar.Brand className='header'>
+         <img width='115px' height='110' src={Logo} style={{padding:'7px',float:'left', marginTop:'-55px' ,backgroundColor:'0.0.5' }}/>
+        Qoutilicious
+        </Navbar.Brand></Link>
         <div className='container'>
         <Link className='navLinks' to="/">Home</Link>
           <Link className='navLinks' to="/profile">Profile</Link>
@@ -24,6 +29,7 @@ class Header extends React.Component {
          
          
       </Navbar>
+      </>
     )
   }
 }
