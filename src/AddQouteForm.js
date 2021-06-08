@@ -37,19 +37,20 @@ class AddQouteForm extends React.Component {
         event.preventDefault();
     
         const { user } = this.props.auth0;
-        const qoute = {
+        const quote = {
     
-          email: user.email,
+          email: user.email, 
           author: user.name,
           tag: this.state.tag,
           txt: this.state.text,
     
         }
-    console.log(qoute);
-        const newQoute = await axios.post(`http://localhost:3300/addquote`, qoute);
+    console.log(quote);
+        const newQoute = await axios.post(`http://localhost:3001/addquote`, quote);
     
         console.log(newQoute);
         this.props.hiddenModal();
+     
       }
 
 

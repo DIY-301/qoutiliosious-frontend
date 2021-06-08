@@ -9,6 +9,8 @@ import Main from './Main';
 import App from './App'
 import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
+import EditQuote from './EditQuoteModal'
+
 
 
 
@@ -16,7 +18,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      txt: '',
       tag: '',
       displayModal: false,
       showCards: false,
@@ -28,16 +30,12 @@ class Profile extends React.Component {
   }
 
 
+  // updateFromBackend = () => {
+  //   const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
 
-
-  updateFromBackend = () => {
-    const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
-
-    const gettingUpdates = await axios.get(updatingTheQuote);
-    console.log(gettingUpdates.data);
-  }
-
-
+  //   // const gettingUpdates = await axios.get(updatingTheQuote);
+  //   console.log(gettingUpdates.data);
+  // }
 
 
 
@@ -46,11 +44,62 @@ componentDidMount = async () =>
   const { user } = this.props.auth0;
 
   
-  const myQouteArr = `${this.state.server}/getquote?email=${user.email}`;
+  const myQouteArr = `http://localhost:3001/getquote?email=${user.email}`;
 
   const reqFromBack= await axios.get(myQouteArr);
   console.log(reqFromBack.data);
 
+  this.setState({
+    qoute:reqFromBack.data,
+    showCards:true
+  })
+console.log(this.state.qoute)
+
+}
+
+
+deleteQoute = async (idx) => {
+  let { user } = this.props.auth0;
+  console.log(idx);
+
+  user = { email: user.email }
+  console.log(user)
+  const deleteQoute = await axios.delete(`http://localhost:3001/deleteqout/${idx}`, { params: user })
+console.log(deleteQoute);
+  this.setState({
+    qoute: deleteQoute.data
+  })
+  console.log(this.state.qoute);
+  
+
+}
+
+
+  editQuoteCall=(data)=>{
+console.log(data.txt);
+this.setState({
+  idx:data.idx,
+  tag:data.tag,
+  txt:data.txt
+})
+
+this.showEditModal();
+console.log(this.state.idx);
+
+}
+showEditModal=()=>{
+  this.setState({
+    showModal:true,
+
+
+  })
+  
+}
+
+closeEditModal=()=>{
+  this.setState({
+    showModal:false
+  })
 }
 
 
@@ -67,40 +116,48 @@ componentDidMount = async () =>
       displayModal: false,
     })
   }
-  renderData = (data) => {
-    console.log(data.qoute, 'FromProfile');
-
-    this.setState({
-      qouteArr: data.qoute,
-    });
-  }
-
 
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/* فادي مر من هنا و قلبه انجرح كمان  */}
+      //  {/*  مر من هنا  */}
       <>
-        {/* {this.props.qoutedData.map(item=>{
+      {this.state.showCards &&
+
+      <CardGroup>
+         {this.state.qoute.map((item, idx) => { 
+           return(
+
+          <Card style={{ width: '18rem' }} className="mb-2">
+            
+              <Card.Header> {item.tag}</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {item.txt}
+                </Card.Text>
+                <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
+                <Button onClick={() => this.editQuoteCall({idx,tag:item.tag,txt:item.txt})} variant="primary">Edit quote</Button>
+
+              </Card.Body>
+            </Card>
+           )
         
-        return ( 
-         <CardGroup className='mr-3'>
-       <Card border="secondary"  style={{ width: '18rem', height: '21rem'}}
-       className="m-2">
-    <Card.Header>{item.author}</Card.Header>
-    <Card.Body>
-      <Card.Text>
-        {item.text}
-      </Card.Text>
-    </Card.Body>
-  </Card>)
-    </CardGroup>
-      )})} */}
-        {/* فادي مر من هنا */}
+         }
+         )}
 
-
-
+</CardGroup>
+  }
       
+
+
+        <EditQuote   
+        idx={this.state.idx}
+        tag={this.state.tag}
+        txt={this.state.txt}
+        showModal={this.state.showModal}
+        closeEditModal={this.closeEditModal}
+        />
+
 
         <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
@@ -127,88 +184,18 @@ componentDidMount = async () =>
 
             <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
 
-            {/* 
-<Card className="Cards" style={{ width: '12rem' }}>
-  <Card.Img variant="top" src={user.picture} />
-  <Card.Body>
-    <Card.Title>{user.name}</Card.Title>
-    <Card.Text>
-    </Card.Text>
-  </Card.Body>
-</Card> */}
-            <Card className="Cards" style={{ width: '12rem' }}>
-              
-
-              <Card.Body style={{marginBottom:'300px'}}>
-                <Card.Title>
-                  
-                </Card.Title>
+          
                 
                 <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button>
-                
-              </Card.Body>
-            </Card>
-
-          <button   onClick={this.updateFromBackend} >   </button> 
-
+        
           </div>
         </Jumbotron>
 
-
-
-        <div>
-
-          {this.state.qoute.map((item, idx) => {
-            <Card style={{ width: '18rem' }} className="mb-2"
-            >
-
-              <Card.Header> {this.item.tag}</Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  {this.item.text}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-
-          }
-          )}
-
-           
-        </div>
-
-        <Carousel className="carouselCards">
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100 mr-3"
-              src="https://images.pexels.com/photos/6230972/pexels-photo-6230972.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="First slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/2821823/pexels-photo-2821823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Second slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '20rem' }}>
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Third slide"
-            />
-
-
-          </Carousel.Item>
-        </Carousel>
-      </>
-
+      </>     
 
     )
   }
-}
 
+}
 
 export default withAuth0(Profile);
