@@ -53,8 +53,7 @@ let server=process.env.REACT_APP_SERVER;
               this.setState({
                 qoutedData:newQouteData
               })
-              console.log(this.state.qoutedData);
-         
+              console.log(this.state.qoutedData);        
             })
        .catch(err=>{
             console.log(err); })

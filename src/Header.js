@@ -8,6 +8,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import Logo from './LoGoDiY.png'
+
 class Header extends React.Component {
   render() {
     return(
@@ -22,11 +23,15 @@ class Header extends React.Component {
         <Link className='navLinks' to="/">Home</Link>
           <Link className='navLinks' to="/profile">Profile</Link>
           <Link className='navLinks' to="/memes">Memes</Link>
+          
+          <Link className='navLinks' to="/profile">Profile</Link>
 
           <Link className='navLinks' to="/aboutUs">About Us</Link>
-          <Link className='navButton' > { this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}</Link>
         </div>
-         
+         <div>
+
+          <Link className='navButton' > { this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}</Link>
+         </div>
          
       </Navbar>
       </>
