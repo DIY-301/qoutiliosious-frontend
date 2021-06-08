@@ -219,42 +219,12 @@ closeEditModal=()=>{
 
       
 
-        <Carousel className="carouselCards" style={{ marginTop:"200px"  }}>
-          <Carousel.Item style={{ width: '100rem' ,height:"60rem" }}>
-            <img
-              className="d-block w-100 mr-3"
-              src="https://images.pexels.com/photos/2255441/pexels-photo-2255441.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="First slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '100rem',height:"60rem"  }}>
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/6185624/pexels-photo-6185624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Second slide"
-            />
-
-          </Carousel.Item>
-          <Carousel.Item style={{ width: '100rem' ,height:"60rem"  }}>
-         
-
-
-          </Carousel.Item>
-        </Carousel>
+       
 
 
           <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
 
-            {/* <div style={{ backgroundColor: "#eb5e0b", opacity: '5', marginLeft: '', height: '500px', width: '115px' }}> <p></p></div> yellow figure */}
-
-            {/* <div className="profImg">
-              <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" />
-            </div> */}
-{/* 
-            <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
-
-           */}
+      
                 
                 {/* <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button> */}
         
