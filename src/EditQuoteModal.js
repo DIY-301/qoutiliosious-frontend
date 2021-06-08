@@ -28,61 +28,31 @@ class editQuoteModal extends React.Component {
             txt:this.state.changedQuote
         }
         const server = process.env.REACT_APP_SERVER;
-        console.log(server);
-
+        
         this.props.closeEditModal(null);
-
         let result = await axios.put(`${server}/editquote/${this.props.idx}`,anything);
-
-
-
+        console.log(result);
     }
-
-
-
-
-    // function Example() {
-    //     const [show, setShow] = useState(false);
 
     handleClose = () => {
-
-
         this.setState({
-            setShow: false,
-
-
-        })
-
-    }
-
+            setShow: false})
+         }
 
     userTagOnChange = (event) => {
         event.preventDefault();
         this.setState({
             changedTag: event.target.value
         })
-        console.log(this.state.changedTag);
     }
-
     userQuoteOnChange = (event) => {
         event.preventDefault();
-
-        //   const  changedQuote = event.target.value;
-
         this.setState({
             changedQuote: event.target.value
         })
-
-        console.log(this.state.changedQuote);
     }
 
-
-
-
-    //     const handleShow = () => setShow(true);
-    // }
     render() {
-
         return (
             <>
 
@@ -90,26 +60,22 @@ class editQuoteModal extends React.Component {
                     <Modal.Header closeButton>
                         <Modal.Title>make your edits !!!</Modal.Title>
                     </Modal.Header>
+
                     <Modal.Body>
                         <h4>Original Tag :  {this.props.tag}</h4>
-
-
                         <h4>Original Quote : </h4>
                         <p>{this.props.txt}</p>
-
-                        <Form.Control type="text" onChange={this.userTagOnChange} placeholder="Edit Tag" />
-                        <Form.Control onChange={this.userQuoteOnChange} type="text" placeholder="Edit Quote" />
-
-
+                   <Form.Control type="text" onChange={this.userTagOnChange} placeholder="Edit Tag" />
+                    <Form.Control onChange={this.userQuoteOnChange} type="text" placeholder="Edit Quote" />
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={this.props.closeEditModal}>
-                            Close
-            </Button>
-                        <Button variant="primary" onClick={this.editQuoteReq}>
+                            <Button variant="secondary" onClick={this.props.closeEditModal}>
+                             Close
+                            </Button>
+                            <Button variant="primary" onClick={this.editQuoteReq}>
                             Save Changes
-            </Button>
+                          </Button>
                     </Modal.Footer>
                 </Modal>
             </>

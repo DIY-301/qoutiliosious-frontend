@@ -16,90 +16,77 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  withRouter 
+  withRouter
 } from "react-router-dom";
 
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      author:'',
-      txt:''
+    this.state = {
+      author: '',
+      txt: ''
     }
   }
-  
-  shareToProfile =(data)=>{
+/************************************************Share To Profile(ADD)******************************************************************** */
+  shareToProfile = (data) => {
     const { user } = this.props.auth0;
-  console.log(data);
+    console.log(data);
 
-  const qoute={
-  email:user.email,
-  author:data.author,
-  txt:data.txt,
-  tag:data.tag
-}
-console.log(qoute);
-let server=process.env.REACT_APP_SERVER;
-    // const postQouteUrl=(`${server}/addquote`,qoute)
-    // console.log(postQouteUrl);
-
-     axios
-     .post(`${server}/addquote`,qoute)
-        .then(result=>{
-            let newQouteData= result.data.map(item=>{
-                return item
-              })
-              this.setState({
-                qoutedData:newQouteData
-              })
-              console.log(this.state.qoutedData);        
-            })
-       .catch(err=>{
-            console.log(err); })
+    const qoute = {
+      email: user.email,
+      author: data.author,
+      txt: data.txt,
+      tag: data.tag
     }
-   
+    let server = process.env.REACT_APP_SERVER;
+
+    axios
+      .post(`${server}/addquote`, qoute)
+      .then(result => {
+        let newQouteData = result.data.map(item => {
+              return item
+        })
+      }).catch(err => {console.log(err);})
+  }
+/************************************************************************************************************************************ */
 
   render() {
-    return(
+    return (
       <>
         <Router>
-          {/* <IsLoadingAndError> */}
-            <Header />
-              <Switch>
-                <Route exact path="/">
-                {/* { this.props.auth0.isAuthenticated && <Login/>} */}
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              {/* { this.props.auth0.isAuthenticated && <Login/>} */}
               <Main
-              shareToProfile={this.shareToProfile}
+                shareToProfile={this.shareToProfile}
               />
-                </Route>
-                <Route exact path="/Profile">
+            </Route>
 
-                {this.props.auth0.isAuthenticated &&
-                 <Profile
-                 
-                 qoutedData={this.state.qoutedData}
-                
-                
-                 />  }
-               
-                </Route>
 
-                <Route exact path="/aboutUs">
-                 
-                <AboutUs/>
-                </Route>
-                <Route exact path="/memes">
-                 
-                <Memes/>
-                </Route>
-              </Switch>
-            <Footer />
-          {/* </IsLoadingAndError> */}
+            <Route exact path="/Profile">
+              {this.props.auth0.isAuthenticated &&
+                <Profile/>}
+            </Route>
+
+
+
+
+          <Route exact path="/aboutUs">
+                 <AboutUs />
+           </Route>
+
+            <Route exact path="/memes">
+              <Memes />
+            </Route>
+
+          </Switch>
+          <Footer />
         </Router>
       </>
     )
   }
 }
 
-export default withAuth0(App); 
+export default withAuth0(App);

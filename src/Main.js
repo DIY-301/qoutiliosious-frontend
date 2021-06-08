@@ -6,8 +6,13 @@ import './Main.css';
 import Qoute from './Qoute'
 import axios from 'axios'
 import Profile from './Profile'
-import { CardGroup, ButtonToolbar, Button, ButtonGroup } from 'react-bootstrap';
+import { CardGroup, ButtonToolbar, Button, ButtonGroup ,Modal} from 'react-bootstrap';
+import { Link, Image ,roundedCircle } from "react-router-dom";
+import LoginButton from './LoginButton';
+
 import Coffe from './Coffe3.jpg'
+
+
 let buttonArr =['Peace','General','Attitude','Beauty','Best','Marriage','Men','MoM','Money','Morning','Patience','Movies','Music','Nature','Parenting','Patriotism'];
 
 class Main extends React.Component {
@@ -42,8 +47,16 @@ console.log(this.state.dataArr);
 })
 
 }
- 
-  
+handleAlert=()=>{
+this.setState({
+  showAlert:true
+})
+}
+closeAlert =()=>{
+  this.setState({
+    showAlert:false
+  })
+}
 
   render() {
     return (
@@ -83,11 +96,28 @@ console.log(this.state.dataArr);
                 text={item.text}
                 tag={item.tag}
                 shareToProfile={this.props.shareToProfile}
-                
+                handleAlert={this.handleAlert}
                 />
               })
             }
         </CardGroup>
+     
+
+      <Modal show={this.state.showAlert} onHide={this.closeAlert}>
+        <Modal.Header closeButton>
+          <Modal.Title>You Are Not Signed In !!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Click The Sign in  Button Below To Enjoy Our Features :) </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={this.closeAlert}>
+            Close
+          </Button>
+          <Button  onClick={''}>
+          <Link  >   <LoginButton/> </Link>
+          </Button>
+
+        </Modal.Footer>
+      </Modal>
       </Jumbotron>
 
             </>

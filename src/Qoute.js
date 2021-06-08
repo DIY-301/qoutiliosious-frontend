@@ -1,9 +1,10 @@
 'use strict';
 import axios from 'axios';
 import React from 'react'
-import { Card, Collapse, Fade } from 'react-bootstrap'
+import { Card, Collapse, Fade,Modal,Button } from 'react-bootstrap'
 import './Main.css';
 import { withRouter } from "react-router-dom";
+import { withAuth0 } from '@auth0/auth0-react';
 
 class Qoute extends React.Component {
     constructor(props) {
@@ -17,29 +18,27 @@ class Qoute extends React.Component {
         }
     }
     setOpen = () => {
+        const { user } = this.props.auth0;
         this.setState({
             open: true,
             author:this.props.name,
             txt:this.props.text,
             tag:this.props.tag
         });
-      
     }
+
     setClose = () => {
         this.setState({
             open: false
         });
     }
-    handleClick = (value) => {
-        this.props.history.push("/Profile");
-    };
-
-
+   
+      
     render() {
         let random = parseInt(0 + Math.random() * (7 - 0));
         let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
         return (
-
+            
         
                
             <div style={{ justifyContent: 'center'}}>
@@ -47,9 +46,7 @@ class Qoute extends React.Component {
                     bg={'secondary'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
                     style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
-                    // className="m-2"
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
-                    // aria-controls="example-collapse-text"
                     aria-expanded={this.state.open}
                 >
                     <Card.Header>
@@ -63,22 +60,21 @@ class Qoute extends React.Component {
                         <Fade in={this.state.open}>
                             <div id="example-collapse-text">
                            
-                                <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
+{ this.props.auth0.isAuthenticated ? <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
                             
-
-                                <button  onClick={this.handleClick}>  preview  </button>
+                              :  <button  onClick={this.props.handleAlert}>  Share  </button>}
                               
                             </div>
                                 
                         </Fade>
                     </Card.Footer>
                 </Card>
+  
                 </div> 
            
         )
     }
-    // )
 
 }
 
-export default withRouter(Qoute);
+export default withAuth0(Qoute);

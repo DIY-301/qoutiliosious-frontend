@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 .jumbotron{
   margin-bottom: 0;
 }
 .QoutesCards{
   padding-right: 50px;
+  font-family: 'Indie Flower', cursive;
 }
 .my-p{
 color: black;

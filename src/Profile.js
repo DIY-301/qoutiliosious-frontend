@@ -11,8 +11,7 @@ import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
 
-
-
+ 
 
 class Profile extends React.Component {
   constructor(props) {
@@ -28,52 +27,32 @@ class Profile extends React.Component {
       
     }
   }
+  componentDidMount = async () =>
+  {
+    const { user } = this.props.auth0;
 
-
-  // updateFromBackend = () => {
-  //   const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
-
-  //   // const gettingUpdates = await axios.get(updatingTheQuote);
-  //   console.log(gettingUpdates.data);
-  // }
-
-
-
-componentDidMount = async () =>
-{
-  const { user } = this.props.auth0;
-
+    const myQouteArr = `${process.env.REACT_APP_SERVER}/getquote?email=${user.email}`;
   
-  const myQouteArr = `http://localhost:3001/getquote?email=${user.email}`;
+    const reqFromBack= await axios.get(myQouteArr);
+  
+    this.setState({
+      qoute:reqFromBack.data,
+      showCards:true
+    })
+  }
 
-  const reqFromBack= await axios.get(myQouteArr);
-  console.log(reqFromBack.data);
-
-  this.setState({
-    qoute:reqFromBack.data,
-    showCards:true
-  })
-console.log(this.state.qoute)
-
-}
-
-
-deleteQoute = async (idx) => {
+  deleteQoute = async (idx) => {
   let { user } = this.props.auth0;
   console.log(idx);
 
   user = { email: user.email }
   console.log(user)
-  const deleteQoute = await axios.delete(`http://localhost:3001/deleteqout/${idx}`, { params: user })
+  const deleteQoute = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteqout/${idx}`, { params: user })
 console.log(deleteQoute);
   this.setState({
     qoute: deleteQoute.data
   })
-  console.log(this.state.qoute);
-  
-
 }
-
 
   editQuoteCall=(data)=>{
 console.log(data.txt);
@@ -82,18 +61,14 @@ this.setState({
   tag:data.tag,
   txt:data.txt
 })
-
+//call
 this.showEditModal();
-console.log(this.state.idx);
-
 }
+
 showEditModal=()=>{
   this.setState({
     showModal:true,
-
-
   })
-  
 }
 
 closeEditModal=()=>{
@@ -120,7 +95,6 @@ closeEditModal=()=>{
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/*  مر من هنا  */}
       <>
       {this.state.showCards &&
 
@@ -131,14 +105,15 @@ closeEditModal=()=>{
           <Card style={{ width: '18rem' }} className="mb-2">
             
               <Card.Header> {item.tag}</Card.Header>
+
               <Card.Body>
                 <Card.Text>
                   {item.txt}
                 </Card.Text>
                 <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
                 <Button onClick={() => this.editQuoteCall({idx,tag:item.tag,txt:item.txt})} variant="primary">Edit quote</Button>
-
               </Card.Body>
+
             </Card>
            )
         
@@ -195,7 +170,5 @@ closeEditModal=()=>{
 
     )
   }
-
 }
-
 export default withAuth0(Profile);
