@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, Collapse, Fade } from 'react-bootstrap'
 import './Main.css';
 import { withRouter } from "react-router-dom";
-
+import './quote.css';
 class Qoute extends React.Component {
     constructor(props) {
         super(props);
@@ -43,19 +43,22 @@ class Qoute extends React.Component {
         
                
             <div style={{ justifyContent: 'center'}}>
-                <Card
+                <Card className="shdow"
+                  style={{ width: '18rem',paddingBottom:'30px' }}
                     bg={'secondary'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
-                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
+                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'60px', borderradius:'5'}}
                     // className="m-2"
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
                     // aria-controls="example-collapse-text"
                     aria-expanded={this.state.open}
                 >
-                    <Card.Header>
+                      
+
+                    <Card.Header className='textt'>
                         <h5 style={{ color: 'black', fontWeight: 'bold' }}>{this.props.name}</h5>
                     </Card.Header>
-                    <Card.Body>
+                    <Card.Body >
                         
                         <p className="my-p" > {this.props.text}</p>
                     </Card.Body>
@@ -63,10 +66,10 @@ class Qoute extends React.Component {
                         <Fade in={this.state.open}>
                             <div id="example-collapse-text">
                            
-                                <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
+                                <button className="butt" onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
                             
 
-                                <button  onClick={this.handleClick}>  preview  </button>
+                                <button className="butt" onClick={this.handleClick}>  preview  </button>
                               
                             </div>
                                 

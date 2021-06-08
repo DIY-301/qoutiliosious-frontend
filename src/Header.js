@@ -13,19 +13,17 @@ class Header extends React.Component {
   render() {
     return(
       <>
-      <Navbar className='nav' collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar className='nav' collapseOnSelect expand="lg" >
        <Link className='navLinks' to="/">
-        <Navbar.Brand className='header'>
-         <img width='115px' height='110' src={Logo} style={{padding:'7px',float:'left', marginTop:'-55px' ,backgroundColor:'0.0.5' }}/>
-        Qoutilicious
+        <Navbar.Brand className='header' >
+         <img width='180px' height='170' src={Logo} style={{padding:'30px',float:'left', marginTop:'-55px' ,backgroundColor:'0.0.5' }}/>
+         <div className='quote'>Quotilicious</div>
         </Navbar.Brand></Link>
         <div className='container'>
         <Link className='navLinks' to="/">Home</Link>
           <Link className='navLinks' to="/profile">Profile</Link>
           <Link className='navLinks' to="/memes">Memes</Link>
-          
-          <Link className='navLinks' to="/profile">Profile</Link>
-
+        
           <Link className='navLinks' to="/aboutUs">About Us</Link>
         </div>
          <div>

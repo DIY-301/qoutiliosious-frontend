@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.textt{
+    color: rgb(252, 252, 248);
+    font-family: 'Indie Flower', cursive;
+    font-size: 26px;
+  
+
+}
+
+.shdow{
+    border-radius: 90px;
+	box-shadow: 0 0 9px rgb(89, 132, 226), 0 0 12px rgb(131, 176, 235), 0 0 4px  rgb(105, 133, 245);
+}
+.butt{
+    border-radius: 100px;
+
+
+}

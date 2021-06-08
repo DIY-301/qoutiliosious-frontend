@@ -30,12 +30,6 @@ class Profile extends React.Component {
   }
 
 
-  // updateFromBackend = () => {
-  //   const updatingTheQuote = `${this.state.server}/editquote?email=${user.email}`;
-
-  //   // const gettingUpdates = await axios.get(updatingTheQuote);
-  //   console.log(gettingUpdates.data);
-  // }
 
 
 
@@ -120,8 +114,46 @@ closeEditModal=()=>{
   render() {
     const { user } = this.props.auth0;
     return (
-      //  {/*  مر من هنا  */}
+      
       <>
+
+
+<CardGroup className="profileCards">
+<Card  >
+            <Card.Img  src={user.picture} />
+            <Card.Body>
+              <Card.Title>{user.name}</Card.Title>
+              <Card.Text>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
+</CardGroup>
+
+
+{/* 
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="..." alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> */}
+
       {this.state.showCards &&
 
       <CardGroup>
@@ -161,7 +193,7 @@ closeEditModal=()=>{
 
         <AddQouteForm hiddenModal={this.hiddenModal} displayModal={this.state.displayModal} />
 
-        <Jumbotron className="jumb">
+        {/* <Jumbotron className="jumb">
 
           <h1>Hello {user.name} in Your profile page</h1>
           <p>
@@ -169,27 +201,25 @@ closeEditModal=()=>{
           </p>
 
 
-        </Jumbotron>
+        </Jumbotron> */}
 
 
 
-        <Jumbotron className="picJumb">
           <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap', padding: '2rem' }}>
 
-            <div style={{ backgroundColor: "#eb5e0b", opacity: '5', marginLeft: '', height: '500px', width: '115px' }}> <p></p></div> {/* yellow figure */}
+            {/* <div style={{ backgroundColor: "#eb5e0b", opacity: '5', marginLeft: '', height: '500px', width: '115px' }}> <p></p></div> yellow figure */}
 
-            <div className="profImg">
+            {/* <div className="profImg">
               <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-rounded" alt="Cinque Terre" />
-            </div>
-
+            </div> */}
+{/* 
             <div style={{ backgroundColor: "#eb5e0b", marginLeft: '', height: '115px', width: '900px' }}> <p></p></div>
 
-          
+           */}
                 
-                <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button>
+                {/* <Button    onClick={this.showModal} variant="outline-secondary">Add new Quote</Button> */}
         
           </div>
-        </Jumbotron>
 
       </>     
 

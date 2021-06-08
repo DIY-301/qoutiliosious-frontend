@@ -63,20 +63,21 @@ render() {
 
       
         <div>
-          <Modal show={this.props.displayModal} onHide={this.props.hiddenModal} >
+          {/* <Modal show={true} onHide={this.props.hiddenModal} >
             <Modal.Header closeButton>
               <Modal.Title>Add New Qoute </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              <Form   >
-          
-                <Form.Group>
-                  <Form.Label>text</Form.Label>
-                  <Form.Control onChange={this.updateText} type='text' />
+            <Modal.Body> */}
+
+              <Form   className="fform" >
+                <h2 style ={{paddingBottom:"5px"}}>Add New Quote</h2>
+                <Form.Group  >
+                  {/* <Form.Label  ></Form.Label> */}
+                  <Form.Control  placeholder="ADD-YOUR-QUOTE-HERE" onChange={this.updateText} type='text' />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Tag</Form.Label>
-                  <Form.Control as='select' onChange={this.updateTag} custom >
+                  {/* <Form.Label>Tag</Form.Label> */}
+                  <Form.Control placeholder="CHIOCE"  as='select' onChange={this.updateTag} custom >
                     <option value="Motivational">Motivational</option>
                     <option value="Peace">Peace</option>
                     <option value="General">General</option>
@@ -98,18 +99,19 @@ render() {
 
 
                   </Form.Control>
+                  <Button className="ButtonAdd" variant="primary" type="submit" onClick={this.addQoute}>
+                Add Qoute
+                         </Button>
                 </Form.Group>
               </Form>
-            </Modal.Body>
+            {/* </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={this.props.hiddenModal}>
                 Close
                        </Button>
-              <Button variant="primary" type="submit" onClick={this.addQoute}>
-                Add Qoute
-                         </Button>
+           
             </Modal.Footer>
-          </Modal>
+          </Modal> */}
         </div>
         )
 }
