@@ -142,10 +142,6 @@ userQuoteOnChange = (event) => {
               src="https://images.pexels.com/photos/4065405/pexels-photo-4065405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="Third slide"
             />
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
 
@@ -159,7 +155,6 @@ userQuoteOnChange = (event) => {
               </Card.Text>
             </Card.Body>
           </Card>
-
 </CardGroup>
 
 
