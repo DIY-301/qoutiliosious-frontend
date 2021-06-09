@@ -49,7 +49,6 @@ class Qoute extends React.Component {
                     bg={this.props.bg}
                     text={this.props.bg == 'light' ? 'dark' : 'white'}
                     style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
-
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
                     aria-expanded={this.state.open}
                 >

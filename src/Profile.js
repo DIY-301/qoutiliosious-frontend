@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Button, CardGroup, Card, Carousel, OverlayTrigger, Overlay, Tooltip, Modal, Form, Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './profile.css'
+import './profile.css';
 import Qoute from './Qoute'
 import './Main.css';
 import App from './App'
@@ -11,7 +11,7 @@ import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
 import EditQuoteModal from './EditQuoteModal';
-import { positions, Provider } from "react-alert";
+// import { positions, Provider } from "react-alert";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -125,7 +125,7 @@ class Profile extends React.Component {
           <Card  >
             <Card.Img src={user.picture} />
             <Card.Body>
-              <Card.Title>{user.name}</Card.Title>
+              <Card.Title className="userName">{user.name}</Card.Title>
               <Card.Text>
               </Card.Text>
             </Card.Body>

@@ -143,6 +143,8 @@ closeAlert =()=>{
 
         </Modal.Footer>
       </Modal>
+     
+
     
       
 );

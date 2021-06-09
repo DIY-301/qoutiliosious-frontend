@@ -17,6 +17,8 @@ a:hover{
 
 nav .container{
 margin-right: 5px;
+text-decoration: none;
+
 }
 
 .nav{
@@ -28,7 +30,7 @@ width: 100%;
 }
 
 .navLinks{
-
+text-decoration: none;
   font-size: 25px;
   font-family: 'Handlee', cursive;
 font-family: 'Pangolin', cursive;
@@ -37,7 +39,6 @@ font-family: 'Pangolin', cursive;
 .qouteLinks{
   font-family: 'Handlee', cursive;
   font-family: 'Pangolin', cursive;
-  font-family: 'Staatliches', cursive;
 font-size: 50px;
 letter-spacing: 5px;
 margin-left: 20px;
@@ -49,5 +50,6 @@ margin-left: 20px;
 
 .quote{
   color: rgb(245, 247, 243);
+  font-size: 40px;
   
 }
