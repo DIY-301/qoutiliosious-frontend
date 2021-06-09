@@ -29,7 +29,7 @@ constructor(props){
   shareToProfile= async(e)=>{
     const { user } = this.props.auth0;
     const quote = {
-      author:e.name,
+      author:e.author,
       email: user.email,
       txt: e.txt,
       tag: e.tag,
@@ -38,11 +38,18 @@ constructor(props){
    this.showAddAlert();
     console.log(quote);
     const newQoute = await axios.post(`${process.env.REACT_APP_SERVER}/addquote`, quote);
+    console.log(newQoute.data);
   }
   showAddAlert=()=>{
     this.setState({
       show:true
     })
+    setTimeout(()=>{
+      this.setState({
+        show:false
+      })
+    },2500)
+   
     console.log(this.state.show);
   }
   showHideAlert=()=>{

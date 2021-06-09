@@ -1,17 +1,12 @@
 'use strict';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import './Main.css';
 import Qoute from './Qoute'
 import axios from 'axios'
-import Profile from './Profile'
-import {Alert, CardGroup, ButtonToolbar, Button, ButtonGroup ,Modal} from 'react-bootstrap';
-import { Link, Image ,roundedCircle } from "react-router-dom";
+import {Alert, CardGroup, ButtonToolbar, Button, ButtonGroup ,Carousel,Modal} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import LoginButton from './LoginButton';
-
-
-
 let buttonArr =['Peace','General','Attitude','Beauty','Best','Marriage','Men','MoM','Money','Morning','Patience','Movies','Music','Nature','Parenting','Patriotism'];
 
 class Main extends React.Component {
@@ -20,16 +15,13 @@ class Main extends React.Component {
     this.state = {
       dataArr: [],
       searchQuery:'money',
-      
     }
     this.catHandler(null)
   }
 catHandler =(e)=>{
-// e.preventDefault();
 if (e){
 this.setState({searchQuery:e.target.value}) }
 let server=process.env.REACT_APP_SERVER;
-// https://goquotes-api.herokuapp.com/api/v1/all?type=tag&val=${this.state.searchQuery}
 let url=`${server}/quote?searchQuery=${this.state.searchQuery.toLowerCase()}`
 console.log(this.state.searchQuery);
 axios
@@ -58,8 +50,38 @@ closeAlert =()=>{
 }
 
   render() {
+    
     return (
       <>
+       <div style={{ width: "80%", marginLeft: "200px" }}>
+          <Carousel>
+
+            <Carousel.Item style={{ height: "600px", width: "100%" }} interval={1000}>
+              <img
+                className="d-block w-100"
+                src="https://images.pexels.com/photos/1303835/pexels-photo-1303835.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="Third slide"
+              />
+
+            </Carousel.Item>
+            <Carousel.Item style={{ height: "600px", width: "100%" }} interval={500}>
+              <img
+                className="d-block w-100"
+                src="https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="Third slide"
+              />
+
+            </Carousel.Item>
+            <Carousel.Item style={{ height: "600px", width: "100%" }}>
+              <img
+                className="d-block w-100"
+                src="https://images.pexels.com/photos/4065405/pexels-photo-4065405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="Third slide"
+              />
+            </Carousel.Item>
+          </Carousel>
+
+        </div>
         <>
         <ButtonToolbar style={{ justifyContent: 'center', marginTop:'100px'}} aria-label="Toolbar with button groups ">
         {buttonArr.map((item,idx)=> {
@@ -90,15 +112,19 @@ closeAlert =()=>{
         <CardGroup style={{ justifyContent: 'center' ,marginTop:'30px'}}>
             {
               this.state.dataArr.map((item, idx) => {
+                let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+                let random=parseInt(0 + Math.random() * (7 - 0));            
                 return < Qoute
                 key={idx}
                 name={item.author}
                 text={item.text}
                 tag={item.tag}
+                bg={prArr[random]}
                 shareToProfile={this.props.shareToProfile}
                 handleAlert={this.handleAlert}
                 />
               })
+              
             }
         </CardGroup>
 
