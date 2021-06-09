@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&family=Staatliches&display=swap');
+
 .jumbotron{
   margin-bottom: 0;
 }
@@ -17,7 +21,11 @@ color: rgb(17, 17, 17);
 background-color: rgba(133, 133, 114, 0.692); */
 }
 
-
+.bi{
+  
+  font-family: 'Handlee', cursive;
+  font-family: 'Pangolin', cursive;
+}
 .bi:hover{
   
 

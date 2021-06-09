@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Button, CardGroup, Card, Carousel, OverlayTrigger, Overlay, Tooltip, Modal, Form, Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './profile.css'
+import './profile.css';
 import Qoute from './Qoute'
 import Main from './Main';
 import App from './App'
@@ -151,7 +151,7 @@ userQuoteOnChange = (event) => {
 <Card  >
             <Card.Img  src={user.picture} />
             <Card.Body>
-              <Card.Title>{user.name}</Card.Title>
+              <Card.Title className="userName">{user.name}</Card.Title>
               <Card.Text>
               </Card.Text>
             </Card.Body>

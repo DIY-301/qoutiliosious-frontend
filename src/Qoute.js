@@ -52,7 +52,7 @@ class Qoute extends React.Component {
                   style={{ width: '18rem',paddingBottom:'30px' }}
                     bg={'secondary'}
                     text={prArr[random] === 'light' ? 'dark' : 'white'}
-                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
+                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'100px'}}
 
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
                     aria-expanded={this.state.open}

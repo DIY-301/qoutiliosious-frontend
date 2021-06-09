@@ -9,7 +9,6 @@ import Profile from './Profile'
 import { CardGroup, ButtonToolbar, Button, ButtonGroup ,Modal} from 'react-bootstrap';
 import { Link, Image ,roundedCircle } from "react-router-dom";
 import LoginButton from './LoginButton';
-import Coffe from './Coffe3.jpg'
 
 
 
