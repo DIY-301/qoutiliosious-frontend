@@ -20,12 +20,15 @@ margin-left: 10px;
 margin-top: 20px;
   }
 .profileCards{
-    margin-top: 40px;
- margin-left: 150px;
+    margin-top: 80px;
+ margin-left: 280px;
 border-radius: 50px;
- height: 70px;
+ height: 80px;
  width: 350px;
 }
+
+
+
 .button{
     margin-right: 850px;
 }
@@ -35,6 +38,11 @@ border-radius: 50px;
   font-size: 40px;
 
 
+}
+.headerTag{
+  
+  color: rgb(17, 17, 17);
+  font-family: 'Indie Flower', cursive;
 }
 
 .imgFirst{
@@ -66,7 +74,7 @@ border-radius: 50px;
  .fform{
      border: 2px solid;
      margin-left: 1100px;
-     height : 300px;
+     height : 400px;
      width: 550px;
      padding:20px;
 font-size: 20px;

@@ -1,5 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Pangolin&family=Staatliches&display=swap');
+
+
 .footerz{
     
     height: 150px;
@@ -12,4 +18,51 @@
      font-size: 50px;
      font-weight: bolder;
      margin-left: 20px;
+}
+.iconsfooter{
+  padding-top: 50px;
+  padding-right: 20px;
+}
+
+i{
+height: 30px;
+}
+.footermd{
+  
+  height: 200px;
+  width: 100%;
+     background-color: rgba(0, 0, 0, 0.507);
+}
+.lonks{
+  position: relative;
+  margin-top: 20px;
+ margin-left: 500px;
+}
+.lonks ul li{
+  
+  padding-bottom: 10px;
+  
+}
+.title{
+  
+  padding-top: 50px;
+  margin-top: 20px;
+  font-size: 60px;
+  color: rgb(250, 245, 245);
+  
+  font-family: 'Handlee', cursive;
+font-family: 'Pangolin', cursive;
+}
+.titlese{
+  font-size: 35px;
+  color: rgb(252, 248, 248);
+  
+  font-family: 'Handlee', cursive;
+font-family: 'Pangolin', cursive;
+}
+.copyrightt{
+  margin-left: 950px;
+  font-size: 30px;
+margin-top: -70px; 
+
 }
