@@ -6,19 +6,18 @@ class AboutUs extends Component {
   render() {
     const { user  } = this.props.auth0;
     return (
-        <>
+        <div style={{marginTop:"-15px",marginLeft:"40px",marginBottom:"20px"}}>
             <div className="section pp-scrollable slide slide-services slide-dark slide-services a-slide-typed" data-name="services">
             <div className="slide-container">
               <div className="container">
                 <div className="row align-items-center">
                   <div className="col-md-5">
                     <div className="animate-element delay5 fadeInUp">
-                      <div className="smallerinoTextTwo title-mini text-primary">DIY</div>
                       <br className="brino" />
-                      <div className="smallerinoText slide-title font-custom"><span className="text-typed a-typed a-typed-services" data-text="Technologies "></span>Technologies used to<br />craft your business.</div>
+                      <div className="smallerinoText slide-title font-custom"><span className="text-typed a-typed a-typed-services" data-text="Technologies "></span>We believe that good design is powerful and  hard work is essential.</div>
                     </div>
                     <div className=" slide-descr animate-element delay7 fadeInUp">
-                      A collection of the most beautiful yet powerful tools to develop your business the way you want<strong> with a modern look and feel. </strong>
+                    <strong>- DIY TEAM</strong>
                     </div>
                     <nav className="service-list animate-element delay9 fadeInUp"></nav>
                   </div>
@@ -71,7 +70,7 @@ class AboutUs extends Component {
             </div>
           </div>
             
-        </>
+        </div>
     )
   }
 }

@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 
 
+
 class Qoute extends React.Component {
     constructor(props) {
         super(props);
@@ -37,12 +38,7 @@ class Qoute extends React.Component {
     }
    
       
-    render() {
-
-
-
-        let random = parseInt(0 + Math.random() * (7 - 0));
-        let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+    render() { 
         return (
               <>
 
@@ -50,8 +46,8 @@ class Qoute extends React.Component {
            
                 <Card className="shdow"
                   style={{ width: '18rem',paddingBottom:'30px' }}
-                    bg={'secondary'}
-                    text={prArr[random] === 'light' ? 'dark' : 'white'}
+                    bg={this.props.bg}
+                    text={this.props.bg == 'light' ? 'dark' : 'white'}
                     style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
 
                     onMouseEnter={this.setOpen} onMouseLeave={this.setClose}

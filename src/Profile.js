@@ -5,12 +5,13 @@ import { Button, CardGroup, Card, Carousel, OverlayTrigger, Overlay, Tooltip, Mo
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './profile.css'
 import Qoute from './Qoute'
-import Main from './Main';
+import './Main.css';
 import App from './App'
 import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
 import EditQuoteModal from './EditQuoteModal';
+import { positions, Provider } from "react-alert";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Profile extends React.Component {
       qoute: [],
       changedTag: '',
       changedTxt: '',
-      idx:0
+      idx: 0
     }
   }
 
@@ -31,6 +32,7 @@ class Profile extends React.Component {
   componentDidMount = () => {
     this.getQuotes();
   }
+
 
 
   getQuotes = async () => {
@@ -53,16 +55,16 @@ class Profile extends React.Component {
     console.log(user)
     const deleteQoute = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteqout/${idx}`, { params: user })
     this.setState({
-    qoute:deleteQoute.data
+      qoute: deleteQoute.data
     });
-  
+
   }
 
   editQuoteReq = async () => {
     // console.log(this.props.txt);
     let { user } = this.props.auth0;
-    let idx=this.state.idx;
-    
+    let idx = this.state.idx;
+
     const updateObj = {
       email: user.email,
       txt: this.state.changedTxt,
@@ -71,8 +73,9 @@ class Profile extends React.Component {
     }
     console.log(updateObj)
     const updateQuote = await axios.put(`${process.env.REACT_APP_SERVER}/updatequote/${idx}`, updateObj);
+    this.closeEditModal();
     this.setState({
-      qoute:updateQuote.data
+      qoute: updateQuote.data
 
     });
 
@@ -86,23 +89,22 @@ class Profile extends React.Component {
   userTagOnChange = (event) => {
     event.preventDefault();
     this.setState({
-        changedTag: event.target.value
+      changedTag: event.target.value
     })
     console.log(this.state.changedTag);
-}
+  }
 
-userQuoteOnChange = (event) => {
+  userQuoteOnChange = (event) => {
     event.preventDefault();
     this.setState({
       changedTxt: event.target.value
     })
 
-    console.log(this.state.changedQuote);
-}
+  }
   showEditModal = (idx) => {
     this.setState({
       showModal: true,
-      idx:idx
+      idx: idx
     })
   }
   closeEditModal = () => {
@@ -112,99 +114,64 @@ userQuoteOnChange = (event) => {
   }
 
 
-  render() {
+
+  render() {  
     const { user } = this.props.auth0;
     return (
-      
-      <>
-<div style={{width:"80%",marginLeft:"250px"}}>
-<Carousel>
-  
-  <Carousel.Item   style={{height:"600px", width:"100%"}} interval={1000}>
-  <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1303835/pexels-photo-1303835.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Third slide"
-            />
-  
-  </Carousel.Item>
-  <Carousel.Item    style={{height:"600px", width:"100%"}}interval={500}>
-  <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Third slide"
-            />
-   
-  </Carousel.Item>
-  <Carousel.Item  style={{height:"600px", width:"100%"}}>
-  <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/4065405/pexels-photo-4065405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Third slide"
-            />
-  </Carousel.Item>
-</Carousel>
 
-</div>
-<CardGroup className="profileCards">
-<Card  >
-            <Card.Img  src={user.picture} />
+      <>
+       
+        <CardGroup className="profileCards">
+          <Card  >
+            <Card.Img src={user.picture} />
             <Card.Body>
               <Card.Title>{user.name}</Card.Title>
               <Card.Text>
               </Card.Text>
             </Card.Body>
           </Card>
-</CardGroup>
+        </CardGroup>
 
 
-      
-        <EditQuote
-          showModal={this.state.showModal}
-          closeEditModal={this.closeEditModal}
-          editQuoteReq={this.editQuoteReq}
-          userTagOnChange={this.userTagOnChange}
-          userQuoteOnChange={this.userQuoteOnChange}
-        />
-        <AddQouteForm hiddenModal={this.hiddenModal} update={this.getQuotes} displayModal={this.state.displayModal} />
+        <div>
+          <EditQuote
+            showModal={this.state.showModal}
+            closeEditModal={this.closeEditModal}
+            editQuoteReq={this.editQuoteReq}
+            userTagOnChange={this.userTagOnChange}
+            userQuoteOnChange={this.userQuoteOnChange}
+          />
+          <AddQouteForm hiddenModal={this.hiddenModal} update={this.getQuotes} displayModal={this.state.displayModal} />
+        </div>
+        <CardGroup style={{ justifyContent: 'center', marginTop: '100px',marginBottom:'50px'}}>
+          {this.state.qoute.map((item, idx) => {
+            let prArr = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+            let random=parseInt(0 + Math.random() * (7 - 0));     
+            return (
+              <div style={{ justifyContent: 'center' }}>
+                <Card className="shdow" bg={prArr[random]}  style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}>
 
-      
+                  <Card.Header className='textt'>
+                    <h5 style={{ color: 'black', fontWeight: 'bold' }}>{item.author}</h5>
+                  </Card.Header>
+                  <Card.Body >
 
+                    <p className="my-p"> {item.txt}</p>
+                  </Card.Body>
+                  <Card.Footer>
+                    <Button className="buttdelet" onClick={() => this.deleteQoute(idx)} variant="secondary">Delete Qoute</Button>
+                    <Button className="buttdelet" onClick={() => this.showEditModal(idx)} variant="secondary">Edit quote</Button>
+                  </Card.Footer>
 
+                </Card>
+              </div>
+            )
 
-<div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap',padding:'4rem',marginRight :'20px',marginBottom:"40px",marginTop:"30px"}}>
-   {this.state.qoute.map((item, idx) => { 
-     return(
-    <Card style={{marginRight:'30px'}}  className ="cardAdd"
-    >
-      
-        <Card.Header> {item.tag}</Card.Header>
-        <Card.Body>
-          <Card.Text className='textt'>
-            {item.txt}
-          </Card.Text>
-          <Button className="buttdelet" onClick={() => this.deleteQoute(idx)} variant="secondary">Delete Qoute</Button>
-              <Button  className="buttdelet" onClick={() => this.showEditModal(idx)} variant="secondary">Edit quote</Button>
+          }
 
-        </Card.Body>
-      </Card>
-
-     )
-  
-   }
-
-   )}
-
-
-
-    </div>
-
-
-       
-
-
-      
-
+          )
+          }
+        </CardGroup>
       </>
 
     )
