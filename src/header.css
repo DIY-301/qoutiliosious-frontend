@@ -12,12 +12,14 @@ a:hover{
   color:darkgrey;
 }
 
-
+.header{
+  color: rgb(245, 247, 243);
+}
 
 
 nav .container{
-margin-right: 5px;
 text-decoration: none;
+padding:90px
 
 }
 

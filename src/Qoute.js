@@ -65,9 +65,9 @@ class Qoute extends React.Component {
                         <Fade in={this.state.open}>
                             <div id="example-collapse-text">
                            
-{ this.props.auth0.isAuthenticated ? <button  onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
+{ this.props.auth0.isAuthenticated ? <button  className='shareButton' onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
                             
-                              :  <button  onClick={this.props.handleAlert}>  Share  </button>}
+                              :  <button className='shareButton' onClick={this.props.handleAlert}>  Share  </button>}
 
                               
                             </div>

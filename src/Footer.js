@@ -49,16 +49,6 @@ class Footer extends React.Component {
    
     </MDBFooter>
 
-
-    //   <Navbar className="footerz" collapseOnSelect  >
-    //   <Navbar.Brand className="fontDIY">&copy; DIY 2021</Navbar.Brand>
-    //   <div className="headerNav">
-    //   <i style="size:30px" class="fab fa-facebook-square"></i>
-    //   <i class="fab fa-instagram"></i>
-    //   <i class="fab fa-twitter"></i>
-    //   </div>
-
-    // </Navbar>
     )
   }
 }
