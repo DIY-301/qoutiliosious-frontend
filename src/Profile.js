@@ -11,6 +11,7 @@ import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
 import EditQuoteModal from './EditQuoteModal';
+import { positions, Provider } from "react-alert";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Profile extends React.Component {
     this.getQuotes();
   }
 
+  
 
   getQuotes = async () => {
     const { user } = this.props.auth0;
@@ -71,6 +73,7 @@ class Profile extends React.Component {
     }
     console.log(updateObj)
     const updateQuote = await axios.put(`${process.env.REACT_APP_SERVER}/updatequote/${idx}`, updateObj);
+    this.closeEditModal();
     this.setState({
       qoute:updateQuote.data
     });
@@ -94,7 +97,6 @@ userQuoteOnChange = (event) => {
       changedTxt: event.target.value
     })
 
-    console.log(this.state.changedQuote);
 }
   showEditModal = (idx) => {
     this.setState({
@@ -119,6 +121,17 @@ userQuoteOnChange = (event) => {
       displayModal: false,
     })
   }
+
+//   <Alert variant="success">
+//   <Alert.Heading>Hey, nice to see you</Alert.Heading>
+//   <p>
+//     Aww yeah, you successfully read this important alert message. This example
+//     text is going to run a bit longer so that you can see how spacing within an
+//     alert works with this kind of content.
+//   </p>
+// alert.show("Oh look, an alert!");
+ 
+// </Alert>
 
   render() {
     const { user } = this.props.auth0;
@@ -197,7 +210,13 @@ userQuoteOnChange = (event) => {
          )}
 
 </CardGroup>
+
+
   }
+
+
+
+
       
         <EditQuote
           showModal={this.state.showModal}

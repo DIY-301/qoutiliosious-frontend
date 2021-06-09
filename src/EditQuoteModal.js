@@ -36,11 +36,17 @@ class editQuoteModal extends React.Component {
                         <Modal.Title>make your edits !!!</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>Original Tag :  {this.props.tag}</h4>
-                        <h4>Original Quote : </h4>
-                        <p>{this.props.txt}</p>
-
+                       
+                        
+                        
+<Form.Label>
+<h4>New Tag :  </h4>
+</Form.Label>
                         <Form.Control type="text" onChange={this.props.userTagOnChange} placeholder="Edit Tag" />
+
+                        <Form.Label>
+<h4>New Quote :  </h4>
+</Form.Label>
                         <Form.Control onChange={this.props.userQuoteOnChange} type="text" placeholder="Edit Quote" />
 
 

@@ -8,6 +8,7 @@ import { withRouter } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 
 
+
 class Qoute extends React.Component {
     constructor(props) {
         super(props);

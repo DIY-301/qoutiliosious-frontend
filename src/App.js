@@ -8,6 +8,7 @@ import Login from './Login';
 import Profile from './Profile';
 import AboutUs from './AboutUs';
 import Memes from './Memes';
+import axios from 'axios';
 
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -20,17 +21,52 @@ import {
 
 
 class App extends React.Component {
+constructor(props){
+  super(props);
+  this.state={
+  show:false
+}}
+  shareToProfile= async(e)=>{
+    const { user } = this.props.auth0;
+    const quote = {
+      author:e.name,
+      email: user.email,
+      txt: e.txt,
+      tag: e.tag,
+      
+    }
+   this.showAddAlert();
+    console.log(quote);
+    const newQoute = await axios.post(`${process.env.REACT_APP_SERVER}/addquote`, quote);
+  }
+  showAddAlert=()=>{
+    this.setState({
+      show:true
+    })
+    console.log(this.state.show);
+  }
+  showHideAlert=()=>{
+    this.setState({
+      show:false
+    })
+  }
+
   render() {
+
     return (
       <>
         <Router>
 
-          {/* <IsLoadingAndError> */}
+        
             <Header />
               <Switch>
                 <Route exact path="/">
-                {/* { this.props.auth0.isAuthenticated && <Login/>} */}
-              <Main/>
+    
+              <Main
+              shareToProfile={this.shareToProfile}
+              show={this.state.show}
+              showAddAlert={this.showHideAlert}
+              />
                 </Route>
                 <Route exact path="/Profile">
 
@@ -49,9 +85,10 @@ class App extends React.Component {
                 </Route>
               </Switch>
             <Footer />
-          {/* </IsLoadingAndError> */}
+          
 
         </Router>
+      
       </>
     )
   }
