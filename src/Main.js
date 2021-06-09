@@ -6,7 +6,7 @@ import './Main.css';
 import Qoute from './Qoute'
 import axios from 'axios'
 import Profile from './Profile'
-import { CardGroup, ButtonToolbar, Button, ButtonGroup ,Modal} from 'react-bootstrap';
+import {Alert, CardGroup, ButtonToolbar, Button, ButtonGroup ,Modal} from 'react-bootstrap';
 import { Link, Image ,roundedCircle } from "react-router-dom";
 import LoginButton from './LoginButton';
 
@@ -70,6 +70,23 @@ closeAlert =()=>{
         })}
         </ButtonToolbar>
         </>
+                <>
+{ this.props.show &&
+                   <Alert  variant="success">
+                   <Alert.Heading> Shared Successfully</Alert.Heading>
+                   <p>
+                     Shared To your Profile Page
+                   </p>
+                   <hr />
+                   <div className="d-flex justify-content-end">
+                     <Button onClick={this.props.showAddAlert} variant="outline-success">
+                        Done !! 
+                                            </Button>
+                   </div>
+                 </Alert>
+           
+}
+               </>
         <CardGroup style={{ justifyContent: 'center' ,marginTop:'30px'}}>
             {
               this.state.dataArr.map((item, idx) => {
@@ -84,7 +101,6 @@ closeAlert =()=>{
               })
             }
         </CardGroup>
-     
 
       <Modal show={this.state.showAlert} onHide={this.closeAlert}>
         <Modal.Header closeButton>
@@ -103,6 +119,9 @@ closeAlert =()=>{
       </Modal>
      
 
+    
+      
+);
 
             </>
     )
