@@ -17,7 +17,8 @@ class Header extends React.Component {
        <Link className='navLinks' to="/">
         <Navbar.Brand className='header' >
          <img width='180px' height='170' src={Logo} style={{padding:'30px',float:'left', marginTop:'-55px' ,backgroundColor:'0.0.5' }}/>
-         Quotilicious
+       <h2 style={{color:'white', marginTop:'15px'}}>Quotilicious
+         </h2>  
         </Navbar.Brand></Link>
         <div className='container'>
         <Link className='navLinks' to="/">Home</Link>
