@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import './profile.css';
 import { Form, Button, NavDropdown, Container, Navbar, Nav, Card, CardGroup, fullscreen, Modal } from 'react-bootstrap';
 
 let memesArr = ['10-Guy', 'Angry-Baby', 'Business-Cat', 'Disaster-Girl', 'Ace-Primo', 'Advice-Dog', 'Yao-Ming', 'Warning-Sign', 'Waiting-Skeleton', 'Woah-Kitty'];
@@ -80,11 +81,11 @@ class Memes extends React.Component {
                     </img>
 
                 </div>
-                <Form style={{ width: '650px', marginLeft: '700px', marginBottom: '20px', border: 'solid', padding: '20px' }} onSubmit={this.submitter}>
+                <Form  className="fform" style={{ width: '650px', marginLeft: '700px', marginBottom: '20px',  padding: '20px' }} onSubmit={this.submitter}>
 
                     <Form.Group className="mb-4" controlId="abcc">
 
-                        <Form.Label style={{ marginLeft: '150px', fontWeight: 'bold', fontSize: '25px' }}>
+                        <Form.Label style={{ marginLeft: '70px', fontWeight: 'bold', fontSize: '25px' }}>
                             MEMES GENERATOR
 </Form.Label>
                     </Form.Group>
@@ -96,7 +97,7 @@ class Memes extends React.Component {
 
                         <Form.Control onChange={this.getBotton} type="text" placeholder="BOTTOM TEXT" />
                     </Form.Group>
-                    <Button style={{ width: '150px', height: '50px', marginLeft: '200px' }} variant="primary" type="submit">
+                    <Button style={{ width: '150px', height: '50px', marginLeft: '60px' }} variant="primary" type="submit">
                         Submit
   </Button>
 

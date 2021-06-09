@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
 
 .carouselCards img{
     /* margin-left: 50%;
@@ -19,16 +20,29 @@ margin-left: 10px;
 margin-top: 20px;
   }
 .profileCards{
-    margin-top: 40px;
- margin-left: 150px;
+    margin-top: 80px;
+ margin-left: 280px;
 border-radius: 50px;
- height: 70px;
+ height: 80px;
  width: 350px;
 }
+
+
+
 .button{
     margin-right: 850px;
 }
+.textt{
+  color: rgb(17, 17, 17);
+  font-size: 40px;
 
+
+}
+.headerTag{
+  
+  color: rgb(17, 17, 17);
+  font-family: 'Indie Flower', cursive;
+}
 
 .imgFirst{
 height: 200px;
@@ -38,7 +52,17 @@ padding-top: 20px;
 }
 
  
+.cardAdd{
+margin-left: 40px;
+margin-right: 80px;
+ height:300px ;
+  width:550px;
+  border-radius: 50px;
 
+}
+.buttdelet{
+border-radius: 50px;
+}
   
 
   body{
@@ -47,17 +71,21 @@ padding-top: 20px;
   }
 
  .fform{
-     border: 2px solid;
+  font-family: 'Indie Flower', cursive; ;
+
      margin-left: 1100px;
-     height : 300px;
+     height : 400px;
      width: 550px;
      padding:20px;
 font-size: 20px;
 font-weight: bold;
 text-align: center;
-box-shadow: 0 0 9px rgb(89, 132, 226), 0 0 12px rgb(131, 176, 235), 0 0 4px  rgb(105, 133, 245);
+box-shadow: 0 0 9px rgb(96, 98, 102), 0 0 12px rgb(164, 198, 241), 0 0 4px  rgb(105, 133, 245);
 }
-
+.userName{
+  font-family: 'Indie Flower', cursive; ;
+font-size: 30px;
+}
  .ButtonAdd{
      margin-top: 20px;
      background-color: rgb(165, 178, 230);
