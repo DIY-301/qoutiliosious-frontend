@@ -73,8 +73,11 @@ class Profile extends React.Component {
     const updateQuote = await axios.put(`${process.env.REACT_APP_SERVER}/updatequote/${idx}`, updateObj);
     this.setState({
       qoute:updateQuote.data
+
     });
+
     this.getQuotes();
+    this.closeEditModal();
   }
 
 
@@ -107,18 +110,7 @@ userQuoteOnChange = (event) => {
       showModal: false
     })
   }
-  showModal = () => {
 
-    this.setState({
-      displayModal: true
-    })
-
-  }
-  hiddenModal = () => {
-    this.setState({
-      displayModal: false,
-    })
-  }
 
   render() {
     const { user } = this.props.auth0;
@@ -131,7 +123,7 @@ userQuoteOnChange = (event) => {
   <Carousel.Item   style={{height:"600px", width:"100%"}} interval={1000}>
   <img
               className="d-block w-100"
-              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://images.pexels.com/photos/1303835/pexels-photo-1303835.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="Third slide"
             />
   
@@ -139,7 +131,7 @@ userQuoteOnChange = (event) => {
   <Carousel.Item    style={{height:"600px", width:"100%"}}interval={500}>
   <img
               className="d-block w-100"
-              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="Third slide"
             />
    
@@ -147,7 +139,7 @@ userQuoteOnChange = (event) => {
   <Carousel.Item  style={{height:"600px", width:"100%"}}>
   <img
               className="d-block w-100"
-              src="https://images.pexels.com/photos/1580625/pexels-photo-1580625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://images.pexels.com/photos/4065405/pexels-photo-4065405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="Third slide"
             />
     <Carousel.Caption>
@@ -171,33 +163,6 @@ userQuoteOnChange = (event) => {
 </CardGroup>
 
 
-
-
-      {this.state.showCards &&
-
-      <CardGroup>
-         {this.state.qoute.map((item, idx) => { 
-           return(
-
-          <Card style={{ width: '18rem' }} className="mb-2">
-            
-              <Card.Header> {item.tag}</Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  {item.txt}
-                </Card.Text>
-                <Button onClick={() => this.deleteQoute(idx)} variant="primary">Delete Qoute</Button>
-                    <Button onClick={() => this.showEditModal(idx)} variant="primary">Edit quote</Button>
-
-              </Card.Body>
-            </Card>
-           )
-        
-         }
-         )}
-
-</CardGroup>
-  }
       
         <EditQuote
           showModal={this.state.showModal}
@@ -209,6 +174,36 @@ userQuoteOnChange = (event) => {
         <AddQouteForm hiddenModal={this.hiddenModal} update={this.getQuotes} displayModal={this.state.displayModal} />
 
       
+
+
+
+<div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap',padding:'4rem',marginRight :'20px',marginBottom:"40px",marginTop:"30px"}}>
+   {this.state.qoute.map((item, idx) => { 
+     return(
+    <Card style={{marginRight:'30px'}}  className ="cardAdd"
+    >
+      
+        <Card.Header> {item.tag}</Card.Header>
+        <Card.Body>
+          <Card.Text className='textt'>
+            {item.txt}
+          </Card.Text>
+          <Button className="buttdelet" onClick={() => this.deleteQoute(idx)} variant="secondary">Delete Qoute</Button>
+              <Button  className="buttdelet" onClick={() => this.showEditModal(idx)} variant="secondary">Edit quote</Button>
+
+        </Card.Body>
+      </Card>
+
+     )
+  
+   }
+
+   )}
+
+
+
+    </div>
+
 
        
 

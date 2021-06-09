@@ -4,6 +4,7 @@ import React from 'react'
 
 import { Card, Collapse, Fade,Modal,Button } from 'react-bootstrap'
 import './Main.css';
+import './quote.css';
 import { withRouter } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 

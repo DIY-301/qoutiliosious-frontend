@@ -102,7 +102,7 @@ closeAlert =()=>{
 
         </Modal.Footer>
       </Modal>
-      </Jumbotron>
+     
 
 
             </>
