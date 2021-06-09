@@ -11,7 +11,7 @@ import axios from 'axios';
 import AddQouteForm from './AddQouteForm';
 import EditQuote from './EditQuoteModal'
 import EditQuoteModal from './EditQuoteModal';
-import { positions, Provider } from "react-alert";
+// import { positions, Provider } from "react-alert";
 
 class Profile extends React.Component {
   constructor(props) {
