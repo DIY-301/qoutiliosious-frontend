@@ -40,46 +40,45 @@ class Qoute extends React.Component {
 
     render() {
         return (
-            <>
+              <>
 
-                <div style={{ justifyContent: 'center' }}>
+            <div style={{ justifyContent: 'center'}}>
+           
+                <Card className="shdow"
+                  style={{ width: '18rem',paddingBottom:'30px' }}
+                    bg={this.props.bg}
+                    text={this.props.bg == 'light' ? 'dark' : 'white'}
+                    style={{ margin:'10px', width: '18rem', height: '21rem',marginRight:'30px'}}
+                    onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
+                    aria-expanded={this.state.open}
+                >
+                      
+         
+                    <Card.Header className='textt'>
+                        <h5 style={{ color: 'black', fontWeight: 'bold' }}>{this.props.name}</h5>
+                    </Card.Header>
+                    <Card.Body >
+                        
+                        <p className="my-p" > {this.props.text}</p>
+                    </Card.Body>
+                    <Card.Footer>
+                        <Fade in={this.state.open}>
+                            <div id="example-collapse-text">
+                           
+{ this.props.auth0.isAuthenticated ? <button  className='shareButton' onClick={()=> this.props.shareToProfile({author:this.state.author,txt:this.state.txt,tag:this.state.tag})}>  share  </button>
+                            
+                              :  <button className='shareButton' onClick={this.props.handleAlert}>  Share  </button>}
 
-                    <Card className="shdow"
-                        style={{ width: '18rem', paddingBottom: '30px' }}
-                        bg={this.props.bg}
-                        text={this.props.bg == 'light' ? 'dark' : 'white'}
-                        style={{ margin: '10px', width: '18rem', height: '21rem', marginRight: '30px' }}
-
-                        onMouseEnter={this.setOpen} onMouseLeave={this.setClose}
-                        aria-expanded={this.state.open}
-                    >
-
-
-                        <Card.Header className='textt'>
-                            <h5 style={{ color: 'black', fontWeight: 'bold' }}>{this.props.name}</h5>
-                        </Card.Header>
-                        <Card.Body >
-
-                            <p className="my-p" > {this.props.text}</p>
-                        </Card.Body>
-                        <Card.Footer>
-                            <Fade in={this.state.open}>
-                                <div id="example-collapse-text">
-
-                                    {this.props.auth0.isAuthenticated ? <button onClick={() => this.props.shareToProfile({ author: this.state.author, txt: this.state.txt, tag: this.state.tag })}>  share  </button>
-
-                                        : <button onClick={this.props.handleAlert}>  Share  </button>}
-
-
-                                </div>
-
-                            </Fade>
-                        </Card.Footer>
-                    </Card>
-                </div>
-
-
-            </>)
+                              
+                            </div>
+                                
+                        </Fade>
+                    </Card.Footer>
+                </Card>
+                </div> 
+                       
+    
+      </>  )
     }
 
 

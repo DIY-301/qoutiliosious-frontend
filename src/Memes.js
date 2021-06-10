@@ -28,7 +28,6 @@ class Memes extends React.Component {
     getTop = (e) => {
         this.setState({
             topText: e.target.value,
-
         })
 
     }
@@ -55,24 +54,29 @@ class Memes extends React.Component {
 
         const memes = `https://apimeme.com/meme?meme=${this.state.memesType}&top=${this.state.topText}&bottom=${this.state.bottomText}`
 
-        this.setState({
+         this.setState({
             memes: memes,
             show: true
         })
-
+        event.target.reset();
+        this.setState({
+            bottomText:'',
+            topText:''
+        })
     }
 
     handleClose = () => {
         this.setState({
             show: false
         })
+
     }
     render() {
 
         return (
             <>
 
-                <div style={{ marginLeft: '350px', padding: '20px' }}>
+                <div style={{ marginLeft: '400px', padding: '20px' }}>
                     <img style={{ height: '350px', marginBottom: '5px', width: '400px' }} src='https://apimeme.com/meme?meme=Scary-Harry&top=DIY+MEMES&bottom='>
                     </img>
                     <img style={{ height: '350px', marginBottom: '5px', width: '400px', marginLeft: '60px' }} src='https://apimeme.com/meme?meme=Peter-Griffin-News&top=&bottom=Project+week+news'>
@@ -85,7 +89,7 @@ class Memes extends React.Component {
 
                     <Form.Group className="mb-4" controlId="abcc">
 
-                        <Form.Label style={{ marginLeft: '70px', fontWeight: 'bold', fontSize: '25px' }}>
+                        <Form.Label style={{ marginLeft: '30px', fontWeight: 'bold', fontSize: '25px' }}>
                             MEMES GENERATOR
 </Form.Label>
                     </Form.Group>
@@ -97,7 +101,7 @@ class Memes extends React.Component {
 
                         <Form.Control onChange={this.getBotton} type="text" placeholder="BOTTOM TEXT" />
                     </Form.Group>
-                    <Button style={{ width: '150px', height: '50px', marginLeft: '60px' }} variant="primary" type="submit">
+                    <Button className='submitButton' style={{ width: '150px', height: '50px', marginLeft: '60px' }}  type="submit">
                         Submit
   </Button>
 

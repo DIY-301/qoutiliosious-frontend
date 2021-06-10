@@ -7,6 +7,8 @@ import axios from 'axios'
 import {Alert, CardGroup, ButtonToolbar, Button, ButtonGroup ,Carousel,Modal} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import LoginButton from './LoginButton';
+import positions from 'react-alert'
+
 let buttonArr =['Peace','General','Attitude','Beauty','Best','Marriage','Men','MoM','Money','Morning','Patience','Movies','Music','Nature','Parenting','Patriotism'];
 
 class Main extends React.Component {
@@ -94,18 +96,18 @@ closeAlert =()=>{
         </>
                 <>
 { this.props.show &&
-                   <Alert  variant="success">
-                   <Alert.Heading> Shared Successfully</Alert.Heading>
-                   <p>
+
+
+  <Alert style={{width:'600px', margin:'20px 750px', padding:'30px'  }}  variant='dark'>
+    
+    <p style={{marginLeft:'150px'}}>
                      Shared To your Profile Page
                    </p>
-                   <hr />
-                   <div className="d-flex justify-content-end">
-                     <Button onClick={this.props.showAddAlert} variant="outline-success">
+                   <Button  style={{marginLeft:'230px'}} onClick={this.props.showAddAlert} variant="outline-success">
                         Done !! 
                                             </Button>
-                   </div>
-                 </Alert>
+  </Alert>
+                  
            
 }
                </>
