@@ -41,8 +41,11 @@ class AddQouteForm extends React.Component {
     }
     const newQoute = await axios.post(`${process.env.REACT_APP_SERVER}/addquote`, quote);
     const s=newQoute.data;
-    console.log(s);
     this.props.update();
+    this.setState({
+      txt:''
+    });
+    e.target.reset();
   }
   
   render() {

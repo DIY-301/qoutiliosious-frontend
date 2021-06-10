@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React from 'react'
 
-import { Card, Collapse, Fade,Modal,Button } from 'react-bootstrap'
+import { Card, Collapse, Fade, Modal, Button } from 'react-bootstrap'
 import './Main.css';
 import './quote.css';
 import { withRouter } from "react-router-dom";
@@ -15,19 +15,19 @@ class Qoute extends React.Component {
         super(props);
         this.state = {
             open: false,
-            author:'',
-            txt:'',
-            tag:'',
-            qoutedData:{},
+            author: '',
+            txt: '',
+            tag: '',
+            qoutedData: {},
         }
     }
     setOpen = () => {
         const { user } = this.props.auth0;
         this.setState({
             open: true,
-            author:this.props.name,
-            txt:this.props.text,
-            tag:this.props.tag
+            author: this.props.name,
+            txt: this.props.text,
+            tag: this.props.tag
         });
     }
 
@@ -36,9 +36,9 @@ class Qoute extends React.Component {
             open: false
         });
     }
-   
-      
-    render() { 
+
+
+    render() {
         return (
               <>
 

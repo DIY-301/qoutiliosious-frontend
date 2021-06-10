@@ -6,26 +6,6 @@ import { render } from '@testing-library/react';
 
 class editQuoteModal extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        }
-    }
-
-
-   
-
-    handleClose = () => {
-
-
-        this.setState({
-            setShow: false,
-
-
-        })
-
-    }
     render() {
 
         return (
@@ -36,17 +16,17 @@ class editQuoteModal extends React.Component {
                         <Modal.Title>make your edits !!!</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                       
-                        
-                        
-<Form.Label>
-<h4>New Tag :  </h4>
-</Form.Label>
+
+
+
+                        <Form.Label>
+                            <h4>New Tag :  </h4>
+                        </Form.Label>
                         <Form.Control type="text" onChange={this.props.userTagOnChange} placeholder="Edit Tag" />
 
                         <Form.Label>
-<h4>New Quote :  </h4>
-</Form.Label>
+                            <h4>New Quote :  </h4>
+                        </Form.Label>
                         <Form.Control onChange={this.props.userQuoteOnChange} type="text" placeholder="Edit Quote" />
 
 

@@ -28,7 +28,6 @@ class Memes extends React.Component {
     getTop = (e) => {
         this.setState({
             topText: e.target.value,
-
         })
 
     }
@@ -55,17 +54,22 @@ class Memes extends React.Component {
 
         const memes = `https://apimeme.com/meme?meme=${this.state.memesType}&top=${this.state.topText}&bottom=${this.state.bottomText}`
 
-        this.setState({
+         this.setState({
             memes: memes,
             show: true
         })
-
+        event.target.reset();
+        this.setState({
+            bottomText:'',
+            topText:''
+        })
     }
 
     handleClose = () => {
         this.setState({
             show: false
         })
+
     }
     render() {
 
